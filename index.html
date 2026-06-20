@@ -38,7 +38,7 @@
       background: var(--bg);
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -87,7 +87,7 @@
       border-left-color: var(--primary);
     }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       background: var(--bg-hero);
       border-bottom: 1px solid #D0E4C0;
@@ -166,14 +166,14 @@
       margin: 0 0.5rem;
     }
 
-    /* ── LAYOUT CONTAINER ── */
+    /* LAYOUT CONTAINER */
     .site-container {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
-    /* ── FEATURED ── */
+    /* FEATURED */
     .featured-section {
       padding: 3.5rem 2rem;
       background: var(--white);
@@ -250,7 +250,7 @@
     .read-link:hover { gap: 0.65rem; }
     .read-link::after { content: '→'; }
 
-    /* ── RECENT GRID ── */
+    /* RECENT GRID */
     .recent-section {
       padding: 3.5rem 2rem;
       background: var(--bg);
@@ -259,10 +259,6 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
-    }
-    .cards-grid .card:first-child,
-    .cards-grid .card:nth-child(2) {
-      /* top two are slightly larger */
     }
     .cards-row-3 {
       display: grid;
@@ -309,7 +305,58 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ── HOW TO READ ── */
+    /* TOPICS BAR */
+    .topics-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+    .topic-btn {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .topic-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+    .topic-btn.active {
+      color: var(--white);
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .card[style*="display: none"] { display: none !important; }
+
+    /* CARD LINK */
+    .card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .card-link:hover .card {
+      box-shadow: var(--shadow-hov);
+      transform: translateY(-2px);
+    }
+    .card-link .card {
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    /* disable double-hover on card since link wrapper handles it */
+    .card-link .card:hover {
+      box-shadow: var(--shadow-hov);
+      transform: translateY(-2px);
+    }
+
+    /* HOW TO READ */
     .howto-section {
       background: var(--bg-cream);
       border-top: 1px solid var(--border);
@@ -364,7 +411,7 @@
       top: 0.35em;
     }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: var(--primary-dk);
       color: rgba(255,255,255,0.75);
@@ -396,7 +443,7 @@
       text-align: right;
     }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       .cards-grid,
       .cards-row-3 { grid-template-columns: 1fr 1fr; }
@@ -425,19 +472,18 @@
 </head>
 <body>
 
-  <!-- ── NAV ── -->
   <nav aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo">School Board <span>Research</span></a>
       <ul class="nav-links">
         <li><a href="#research" class="active">Research</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="/search.html">Search</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/about.html">About</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ── HERO ── -->
   <header class="hero" id="top">
     <div class="hero-inner">
       <div class="eyebrow">Evidence-Based Governance</div>
@@ -462,7 +508,6 @@
     </div>
   </header>
 
-  <!-- ── FEATURED STUDY ── -->
   <section class="featured-section" id="research" aria-labelledby="featured-heading">
     <div class="site-container">
       <div class="section-header" id="featured-heading">Featured Research</div>
@@ -481,58 +526,73 @@
           <span class="finding-label">For Practitioners:</span>
           <span class="finding-value">Boards should distinguish between process fidelity (doing governance "correctly") and outcome accountability (monitoring whether results actually improve) — research supports the latter more strongly.</span>
         </div>
-        <a href="research/effective-governance-literature.html" class="read-link">Read summary</a>
+        <a href="/research/effective-governance-literature.html" class="read-link">Read summary</a>
       </div>
     </div>
   </section>
 
-  <!-- ── RECENT RESEARCH GRID ── -->
   <section class="recent-section" aria-labelledby="recent-heading">
     <div class="site-container">
       <div class="section-header" id="recent-heading">Recent Research</div>
 
-      <!-- Top 2-column row -->
-      <div class="cards-grid">
-        <article class="card">
-          <span class="study-badge">Meta-Analysis</span>
-          <h3>Training Without Accountability Doesn't Move Outcomes</h3>
-          <p class="card-finding">Multiple studies find that knowledge-based board training, absent accompanying accountability structures, produces measurable knowledge gains but not behavioral change or improved student outcomes.</p>
-          <div class="card-citation">Synthesized from 6 peer-reviewed studies, 2019–2024</div>
-        </article>
-        <article class="card">
-          <span class="study-badge">Longitudinal</span>
-          <h3>Board Governance and Student Achievement: What the Causal Chain Looks Like</h3>
-          <p class="card-finding">The path from board governance to student outcomes is long and mediated, but specific practices — particularly outcome monitoring and superintendent evaluation quality — show the strongest downstream signals.</p>
-          <div class="card-citation">Cross-district longitudinal study, n=142 districts</div>
-        </article>
+      <div class="topics-bar">
+        <button class="topic-btn active" data-topic="all">All Research</button>
+        <button class="topic-btn" data-topic="accountability">Accountability</button>
+        <button class="topic-btn" data-topic="outcomes">Outcomes</button>
+        <button class="topic-btn" data-topic="superintendent">Superintendent</button>
+        <button class="topic-btn" data-topic="composition">Board Composition</button>
+        <button class="topic-btn" data-topic="policy">Policy &amp; Oversight</button>
       </div>
 
-      <!-- Bottom 3-column row -->
+      <div class="cards-grid">
+        <a href="/research/training-without-accountability.html" class="card-link">
+          <article class="card" data-topic="accountability">
+            <span class="study-badge">Meta-Analysis</span>
+            <h3>Training Without Accountability Doesn't Move Outcomes</h3>
+            <p class="card-finding">Multiple studies find that knowledge-based board training, absent accompanying accountability structures, produces measurable knowledge gains but not behavioral change or improved student outcomes.</p>
+            <div class="card-citation">Synthesized from 6 peer-reviewed studies, 2019–2024</div>
+          </article>
+        </a>
+        <a href="/research/board-governance-student-achievement.html" class="card-link">
+          <article class="card" data-topic="outcomes">
+            <span class="study-badge">Longitudinal</span>
+            <h3>Board Governance and Student Achievement: What the Causal Chain Looks Like</h3>
+            <p class="card-finding">The path from board governance to student outcomes is long and mediated, but specific practices — particularly outcome monitoring and superintendent evaluation quality — show the strongest downstream signals.</p>
+            <div class="card-citation">Waters &amp; Marzano (2009), McREL International. Meta-analysis, n=2,817 studies.</div>
+          </article>
+        </a>
+      </div>
+
       <div class="cards-row-3">
-        <article class="card">
-          <span class="study-badge">RCT</span>
-          <h3>Does Board Composition Affect Equity Outcomes?</h3>
-          <p class="card-finding">Districts with demographically representative boards showed modest but statistically significant improvements in equity-related policy adoption — not in student outcomes directly.</p>
-          <div class="card-citation">Randomized policy study, Journal of Education Policy, 2023</div>
-        </article>
-        <article class="card">
-          <span class="study-badge">Survey Study</span>
-          <h3>Superintendent Evaluation Quality as a Governance Indicator</h3>
-          <p class="card-finding">The rigor and specificity of superintendent evaluations correlates more strongly with district performance trajectories than evaluation frequency or formal policy adoption.</p>
-          <div class="card-citation">AASA / NSBA survey research, n=890 superintendents</div>
-        </article>
-        <article class="card">
-          <span class="study-badge">Policy Review</span>
-          <h3>State Oversight Regimes and Local Board Autonomy</h3>
-          <p class="card-finding">State-imposed intervention frameworks reduce certain low-performing outliers but do not on average improve outcomes for boards that weren't already near the intervention threshold.</p>
-          <div class="card-citation">RAND Corporation policy analysis, 2022</div>
-        </article>
+        <a href="/research/board-composition-equity.html" class="card-link">
+          <article class="card" data-topic="composition">
+            <span class="study-badge">Comparative Policy Study</span>
+            <h3>Does Board Composition Affect Equity Outcomes?</h3>
+            <p class="card-finding">Districts with demographically representative boards showed modest but consistent associations with equity-related policy adoption — the direct effect on student outcomes is weaker and more mediated.</p>
+            <div class="card-citation">Meier &amp; England (1984); Berkman &amp; Plutzer (2005). Academic political science research.</div>
+          </article>
+        </a>
+        <a href="/research/superintendent-evaluation-quality.html" class="card-link">
+          <article class="card" data-topic="superintendent">
+            <span class="study-badge">Survey Study</span>
+            <h3>Superintendent Evaluation Quality as a Governance Indicator</h3>
+            <p class="card-finding">The rigor and specificity of superintendent evaluations correlates more strongly with district performance trajectories than evaluation frequency or formal policy adoption.</p>
+            <div class="card-citation">AASA / NSBA survey research, n=890 superintendents</div>
+          </article>
+        </a>
+        <a href="/research/state-oversight-local-autonomy.html" class="card-link">
+          <article class="card" data-topic="policy">
+            <span class="study-badge">Policy Review</span>
+            <h3>State Oversight Regimes and Local Board Autonomy</h3>
+            <p class="card-finding">State-imposed intervention frameworks reduce certain low-performing outliers but do not on average improve outcomes for boards that weren't already near the intervention threshold.</p>
+            <div class="card-citation">RAND Corporation policy analysis; Hess &amp; Meeks (2010), Fordham Institute.</div>
+          </article>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ── HOW TO READ THIS SITE ── -->
-  <section class="howto-section" id="methodology" aria-labelledby="howto-heading">
+  <section class="howto-section" aria-labelledby="howto-heading">
     <div class="howto-grid">
       <div class="howto-col">
         <span class="howto-icon" aria-hidden="true">◆</span>
@@ -546,8 +606,9 @@
       </div>
       <div class="howto-col">
         <span class="howto-icon" aria-hidden="true">✓</span>
-        <h3>Our Methodology Standards</h3>
-        <p>Each summary distinguishes <strong>correlational findings</strong> (X and Y appear together) from <strong>causal claims</strong> (X produces Y). We note sample sizes, study limitations, and replication status. We don't overstate what research shows.</p>
+        <h3>How We Score Research</h3>
+        <p>We evaluate each study using the PEARLS framework — a 6-criterion, 30-point scale that scores participant quality, execution rigor, analysis precision, relevance, funding transparency, and scope. Below 20 = untrustworthy for decision-making. Above 26 = trustworthy.</p>
+        <p style="margin-top:1.5rem;"><a href="/methodology.html" style="color:var(--primary);font-weight:700;">Read the full PEARLS methodology →</a></p>
       </div>
       <div class="howto-col">
         <span class="howto-icon" aria-hidden="true">→</span>
@@ -557,8 +618,7 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
-  <footer id="about">
+  <footer>
     <div class="footer-inner">
       <div>
         <div class="footer-brand">School Board Research</div>
@@ -570,6 +630,21 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.topic-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const topic = btn.dataset.topic;
+        document.querySelectorAll('.card-link').forEach(link => {
+          const card = link.querySelector('.card');
+          const cardTopic = card ? card.dataset.topic : '';
+          link.style.display = (topic === 'all' || cardTopic === topic) ? '' : 'none';
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
