@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Quality of Superintendent Evaluation Predicts More Than Its Frequency — School Board Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --slate: #4A5568;
+      --parchment: #FDF6E3;
+      --forest: #2D5016;
+      --gold: #B7791F;
+      --light-parchment: #FDFAF4;
+      --primary: #2C5F2D;
+      --primary-dk: #1A3A1A;
+      --accent: #97BC62;
+      --border: #DDD9D0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Source Sans Pro', sans-serif; background: var(--light-parchment); color: var(--slate); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--parchment);
+      border-bottom: 3px solid var(--forest);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; color: var(--slate); text-decoration: none; }
+    .nav-logo span { color: var(--forest); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Source Sans Pro', sans-serif; font-weight: 600; font-size: 0.875rem; color: var(--slate); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: border-color 0.2s, color 0.2s; }
+    .nav-links a:hover { color: var(--forest); border-bottom-color: var(--forest); }
+
+    .post-header { background: var(--slate); padding: 3.5rem 2rem 3rem; }
+    .post-header-inner { max-width: 780px; margin: 0 auto; }
+    .back-link { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(253,246,227,0.65); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--parchment); }
+    .citation-tag { display: inline-block; font-size: 0.78rem; font-weight: 600; color: var(--gold); border: 1.5px solid var(--gold); padding: 0.25rem 0.65rem; margin-bottom: 1.25rem; font-style: italic; }
+    .post-header h1 { font-family: 'Merriweather', serif; font-weight: 700; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.3; color: var(--parchment); margin-bottom: 1rem; }
+    .post-meta { font-size: 0.8rem; color: rgba(253,246,227,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .post-body { max-width: 780px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .post-body h2 { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.15rem; color: var(--forest); margin-top: 2.5rem; margin-bottom: 0.85rem; }
+    .post-body p { font-size: 1rem; color: var(--slate); margin-bottom: 1.25rem; line-height: 1.8; }
+
+    .finding-box { background: var(--forest); color: var(--parchment); padding: 1.5rem 1.75rem; margin: 2.5rem 0; }
+    .finding-box strong { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.6rem; }
+    .finding-box p { font-size: 0.95rem; color: rgba(253,246,227,0.9); margin-bottom: 0; }
+
+    .callout { background: var(--parchment); border-left: 4px solid var(--gold); padding: 1.25rem 1.5rem; margin: 2.5rem 0; font-size: 0.9rem; color: #4a4838; }
+    .callout strong { display: block; font-weight: 600; color: var(--slate); margin-bottom: 0.4rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .pearls-table { background: var(--parchment); border: 1.5px solid #c8b87a; margin: 2.5rem 0; padding: 1.75rem; }
+    .pearls-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; border-bottom: 2px solid var(--forest); padding-bottom: 0.75rem; }
+    .pearls-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1rem; color: var(--forest); }
+    .pearls-total { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.75rem; color: var(--forest); }
+    .pearls-row { display: grid; grid-template-columns: 2rem 7rem 3rem 1fr auto; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #e5ddb8; }
+    .pearls-row:last-child { border-bottom: none; }
+    .pearls-letter { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.1rem; color: var(--gold); }
+    .pearls-label { font-size: 0.875rem; font-weight: 600; color: var(--slate); }
+    .pearls-score { font-size: 0.875rem; font-weight: 700; color: var(--forest); text-align: right; }
+    .pearls-bar { background: #e5ddb8; height: 6px; border-radius: 3px; min-width: 80px; }
+    .pearls-fill { background: var(--forest); height: 6px; border-radius: 3px; }
+    .pearls-note { font-size: 0.78rem; color: #6b6040; font-style: italic; min-width: 160px; text-align: right; }
+    .pearls-verdict { margin-top: 1rem; padding-top: 0.75rem; border-top: 2px solid var(--forest); display: flex; gap: 0.75rem; align-items: baseline; }
+    .verdict-label { font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); }
+    .verdict-text { font-size: 0.875rem; color: var(--slate); font-style: italic; }
+
+    .badge { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--gold); color: var(--parchment); padding: 0.2rem 0.6rem; margin-bottom: 1rem; }
+
+    footer { background: var(--slate); color: var(--parchment); padding: 2.5rem 2rem; text-align: center; }
+    footer p { font-size: 0.875rem; color: rgba(253,246,227,0.78); margin-bottom: 0.4rem; }
+    footer p:first-child { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--parchment); font-weight: 700; margin-bottom: 0.5rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">School Board <span>Research</span></a>
+    <ul class="nav-links">
+      <li><a href="/#research">Research</a></li>
+      <li><a href="/methodology.html">Methodology</a></li>
+      <li><a href="/search.html">Search</a></li>
+      <li><a href="/about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <a href="/#research" class="back-link">&#8592; Back to Research</a>
+    <div class="badge">Survey Study</div>
+    <div class="citation-tag">[AASA State of the Superintendent Survey; McREL District Leadership research]</div>
+    <h1>The Quality of Superintendent Evaluation Predicts More Than Its Frequency</h1>
+    <div class="post-meta">Research Summary &middot; June 2026 &middot; Survey Study</div>
+  </div>
+</div>
+
+<div class="post-body">
+
+  <p>Most school board governance frameworks emphasize superintendent evaluation as one of the board's core responsibilities. What the research suggests, however, is that not all evaluations are created equal — and that the structural features of how evaluations are conducted matter far more than whether they happen at all.</p>
+
+  <div class="finding-box">
+    <strong>Core Finding</strong>
+    <p>The rigor and specificity of superintendent evaluations — particularly whether they are tied to student outcome data and include explicit performance criteria established before the evaluation period — correlates more strongly with district performance trajectories than evaluation frequency, formal policy adoption, or compliance with state requirements.</p>
+  </div>
+
+  <h2>What the Survey Research Shows</h2>
+  <p>The American Association of School Administrators (AASA) conducts annual surveys of superintendents tracking, among other things, evaluation practices. The data consistently show substantial variation in how evaluations are conducted: some boards establish explicit performance criteria tied to student outcomes at the start of the school year and review progress mid-year; others conduct a single end-of-year meeting with no pre-established criteria. The outcome data that boards use in evaluations also varies enormously, from formal student achievement metrics to informal board member perceptions of the superintendent's communication style.</p>
+  <p>Across this variation, the pattern in district performance data is consistent: districts where evaluations are more rigorous — with pre-established criteria, student outcome data, mid-year check-ins, and specific behavioral expectations — show stronger performance trajectories over time than districts where evaluations are less structured. The effect size is not large, and the study design cannot establish causation, but the pattern holds across district size, state, and demographic context.</p>
+
+  <h2>The Frequency Trap</h2>
+  <p>A common assumption in school board development is that more frequent evaluation is better. The research does not support this. Annual evaluations conducted with rigor outperform semi-annual evaluations conducted without clear criteria. What matters is the structure of the evaluation, not how often it happens. Frequent, low-quality evaluation may actually be counterproductive — it consumes board-superintendent relationship capital without producing useful feedback.</p>
+  <p>There is also a relationship quality dimension: boards that conduct evaluation as a collaborative professional development process — rather than a compliance exercise or a political accountability moment — report better superintendent retention, higher superintendent satisfaction with the governance relationship, and stronger alignment between board priorities and superintendent action. The mechanism appears to be that rigorous, collaborative evaluation creates shared language about what success looks like.</p>
+
+  <h2>The Criteria Problem</h2>
+  <p>The most important structural feature of superintendent evaluation, across multiple research perspectives, is the timing of criteria-setting. Evaluations where criteria are established before the year begins — and where the superintendent knows in advance what evidence will be reviewed — produce better feedback quality, less conflict, and stronger correlation with district performance improvement. Post-hoc criteria, where the board decides what mattered after seeing the results, introduce bias and reduce the accountability function of the evaluation to near zero.</p>
+  <p>This is not a subtle finding. It is the single most consistent result in the superintendent evaluation literature. Yet AASA survey data consistently show that a substantial minority of school boards do not establish formal evaluation criteria in advance of the evaluation year. The gap between what research recommends and what practice produces is wide here.</p>
+
+  <h2>Practitioner Implications</h2>
+  <p>If your board conducts superintendent evaluation, the research suggests three specific practices worth adopting: set explicit, measurable criteria at the start of the year, not at the end; include student outcome data in the criteria (not as the only criterion, but as a primary one); and conduct at least one mid-year check-in to review progress while there is still time to adjust.</p>
+  <p>If your board currently conducts evaluation primarily through informal board-member impressions, the research suggests that structural reform of the evaluation process — not more frequent evaluation — is the most productive change to make. Moving from informal to criterion-referenced evaluation is likely to produce more governance improvement than doubling the frequency of informal evaluation cycles.</p>
+
+  <div class="pearls-table">
+    <div class="pearls-header">
+      <div class="pearls-title">PEARLS Quality Assessment</div>
+      <div class="pearls-total">21 / 30</div>
+    </div>
+
+    <div class="pearls-row">
+      <div class="pearls-letter">P</div>
+      <div class="pearls-label">Population</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Survey respondents self-select; AASA surveys are large but non-random samples</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">E</div>
+      <div class="pearls-label">Evidence</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Survey methodology captures self-report, not direct observation; correlational design</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">A</div>
+      <div class="pearls-label">Attribution</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Correlational findings appropriately framed; some leap from correlation to prescription in practitioner literature</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">R</div>
+      <div class="pearls-label">Relevance</div>
+      <div class="pearls-score">5/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:100%"></div></div>
+      <div class="pearls-note">Highly relevant, directly actionable by any school board today</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">L</div>
+      <div class="pearls-label">Legitimacy</div>
+      <div class="pearls-score">4/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:80%"></div></div>
+      <div class="pearls-note">AASA is a membership organization with interests in superintendent welfare; no commercial conflict but affiliation acknowledged</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">S</div>
+      <div class="pearls-label">Scope</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Focused on superintendent evaluation practices; does not examine full governance system</div>
+    </div>
+
+    <div class="pearls-verdict">
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-text">Informative — above the untrustworthy threshold. The relevance is high and the practitioner implications are specific. Exercise appropriate caution about causal claims.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Methodology Note</strong>
+    Survey research on superintendent evaluation has a structural limitation: the people being asked about evaluation quality are usually the superintendents, not the board members conducting the evaluations. Board member perceptions and superintendent perceptions of the same evaluation often diverge substantially. This limits the research but does not invalidate it — superintendents' experience of evaluation quality is relevant to understanding its effects.
+  </div>
+
+</div>
+
+<footer>
+  <p>School Board Research</p>
+  <p>Evidence-based resources for governance practitioners and policymakers.</p>
+  <p style="margin-top:1rem;"><a href="/#research">Research</a> &nbsp;&middot;&nbsp; <a href="/methodology.html">Methodology</a> &nbsp;&middot;&nbsp; <a href="/about.html">About</a></p>
+</footer>
+
+</body>
+</html>
