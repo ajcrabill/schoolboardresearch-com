@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lighthouse Inquiry: Examining School Board Leadership — PEARLS Review | School Board Research</title>
+  <meta name="description" content="PEARLS evaluation of the landmark Lighthouse Inquiry study on school board governance and student achievement. Score: 19/30." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #2C5F2D; --primary-dk: #1A3A1A; --accent: #97BC62; --accent-lt: #C8DFA3;
+      --bg: #F8F6F2; --bg-cream: #F0EDE4; --bg-hero: #EDF5EE; --white: #FFFFFF;
+      --text: #1A1A1A; --text-muted: #555; --text-light: #888; --border: #DDD9D0;
+      --shadow: 0 2px 12px rgba(44,95,45,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Source Sans Pro', sans-serif; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--bg); }
+
+    nav { position: sticky; top: 0; z-index: 200; background: var(--white); border-bottom: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-decoration: none; padding: 0.35rem 1rem; border-left: 3px solid transparent; transition: color 0.15s, border-color 0.15s; letter-spacing: 0.02em; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); border-left-color: var(--primary); }
+
+    .article-header { background: var(--primary-dk); padding: 3.5rem 2rem 3rem; }
+    .article-header-inner { max-width: 800px; margin: 0 auto; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(200,223,163,0.75); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--accent-lt); }
+    .back-link::before { content: '←'; }
+    .study-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: rgba(151,188,98,0.15); border: 1px solid rgba(151,188,98,0.4); padding: 0.2rem 0.7rem; border-radius: 2px; margin-bottom: 1rem; }
+    .article-header h1 { font-family: 'Merriweather', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .header-meta { font-size: 0.875rem; color: rgba(255,255,255,0.55); }
+
+    .score-hero { background: var(--white); border-bottom: 1px solid var(--border); padding: 2rem; }
+    .score-hero-inner { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
+    .score-circle { width: 100px; height: 100px; border-radius: 50%; border: 4px solid #E8A000; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
+    .score-number { font-family: 'Merriweather', serif; font-size: 2.2rem; font-weight: 700; color: #E8A000; line-height: 1; }
+    .score-denom { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.05em; }
+    .score-band { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: #FFF3CD; color: #7A5800; border: 1px solid #E8C84A; padding: 0.2rem 0.7rem; border-radius: 2px; margin-bottom: 0.5rem; }
+    .score-interp { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+    .score-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; }
+
+    .content-area { max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem; }
+
+    .finding-box { background: var(--bg-hero); border-left: 4px solid var(--primary); padding: 1.25rem 1.5rem; margin-bottom: 2rem; border-radius: 0 3px 3px 0; }
+    .finding-box .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.5rem; }
+    .finding-box p { font-size: 1rem; color: var(--text); line-height: 1.65; font-style: italic; }
+
+    .section-heading { font-family: 'Merriweather', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem; margin-bottom: 1.25rem; }
+
+    .pearls-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.9rem; }
+    .pearls-table th { background: var(--primary); color: var(--white); padding: 0.6rem 1rem; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.05em; }
+    .pearls-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+    .pearls-table tr:last-child td { border-bottom: none; }
+    .pearls-table tr:nth-child(even) td { background: var(--bg-cream); }
+    .criterion { font-weight: 700; color: var(--primary); font-size: 0.85rem; white-space: nowrap; }
+    .score-cell { text-align: center; }
+    .score-pill { display: inline-block; width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: var(--white); font-weight: 700; font-size: 0.9rem; line-height: 32px; text-align: center; }
+    .score-pill.mid { background: #E8A000; }
+    .score-pill.low { background: #CC2936; }
+    .total-row td { font-weight: 700; background: var(--bg-hero) !important; border-top: 2px solid var(--primary); }
+
+    .key-findings ul { list-style: none; margin-bottom: 2rem; }
+    .key-findings li { display: flex; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; line-height: 1.6; }
+    .key-findings li:last-child { border-bottom: none; }
+    .key-findings li::before { content: '◆'; color: var(--accent); font-size: 0.6rem; margin-top: 0.5rem; flex-shrink: 0; }
+
+    .limitations-box { background: #FFF3CD; border: 1px solid #E8C84A; border-radius: 3px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+    .limitations-box .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7A5800; margin-bottom: 0.75rem; }
+    .limitations-box ul { list-style: none; }
+    .limitations-box li { font-size: 0.9rem; color: #5A4000; line-height: 1.6; padding: 0.35rem 0; padding-left: 1.1rem; position: relative; }
+    .limitations-box li::before { content: '→'; position: absolute; left: 0; color: #E8A000; font-weight: 700; }
+
+    .practitioner-box { background: var(--white); border: 1px solid var(--border); border-radius: 3px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: var(--shadow); }
+    .practitioner-box .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.75rem; }
+    .practitioner-box ul { list-style: none; }
+    .practitioner-box li { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; padding: 0.4rem 0; padding-left: 1.1rem; position: relative; }
+    .practitioner-box li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+
+    .board-synthesis { background: var(--primary-dk); color: var(--white); padding: 1.5rem; border-radius: 3px; margin-bottom: 2rem; }
+    .board-synthesis .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .board-synthesis p { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 0.75rem; }
+    .board-synthesis p:last-child { margin-bottom: 0; }
+
+    .citation-block { background: var(--bg-cream); border: 1px solid var(--border); border-radius: 3px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; font-size: 0.875rem; }
+    .citation-block .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
+    .citation-block p { color: var(--text-muted); line-height: 1.65; font-style: italic; }
+    .citation-block a { color: var(--primary); }
+
+    footer { background: var(--primary-dk); color: rgba(255,255,255,0.75); padding: 2.5rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Merriweather', serif; font-size: 0.9rem; font-weight: 700; color: #fff; }
+    .footer-tagline { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 0.25rem; }
+    .footer-right { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-align: right; }
+
+    @media (max-width: 640px) {
+      .score-hero-inner { grid-template-columns: 1fr; }
+      .score-circle { margin: 0 auto; }
+      .pearls-table { font-size: 0.8rem; }
+      .pearls-table td { padding: 0.6rem 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">School Board <span>Research</span></a>
+      <ul class="nav-links">
+        <li><a href="/#research">Research</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/search.html">Search</a></li>
+        <li><a href="/request.html">Request a Review</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="article-header">
+    <div class="article-header-inner">
+      <a href="/" class="back-link">All Research</a>
+      <div class="study-badge">Case Study — Matched Pairs</div>
+      <h1>The Lighthouse Inquiry: Examining the Role of School Board Leadership in the Improvement of Student Achievement</h1>
+      <div class="header-meta">Delagardelle, M.L. (2008) &nbsp;·&nbsp; Iowa Association of School Boards &nbsp;·&nbsp; Reviewed June 2026</div>
+    </div>
+  </div>
+
+  <div class="score-hero">
+    <div class="score-hero-inner">
+      <div class="score-circle">
+        <div class="score-number">19</div>
+        <div class="score-denom">out of 30</div>
+      </div>
+      <div>
+        <div class="score-band">Score 12–19: Use with significant caveats</div>
+        <div class="score-interp">Informative but not decision-grade evidence</div>
+        <p class="score-desc">The Lighthouse Inquiry is one of the most-cited studies in school board governance — and a PEARLS evaluation reveals why that citation history warrants scrutiny. Its findings are plausible and align with broader governance theory, but a single-state sample, funder conflict, and correlational design limit confidence. Treat as useful context, not causal proof.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <div class="finding-box">
+      <div class="label">One-sentence finding</div>
+      <p>School boards in districts with improving student achievement behave measurably differently from boards in demographically matched low-performing districts — particularly in their knowledge of curriculum, clarity of mission, and collaborative relationship with the superintendent.</p>
+    </div>
+
+    <h2 class="section-heading">PEARLS scorecard</h2>
+    <table class="pearls-table" aria-label="PEARLS evaluation scores">
+      <thead>
+        <tr>
+          <th style="width:130px;">Criterion</th>
+          <th style="width:60px; text-align:center;">Score</th>
+          <th>Evidence and rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="criterion">P — Participants</td>
+          <td class="score-cell"><span class="score-pill mid">3</span></td>
+          <td>16 Iowa districts in 8 matched pairs. Matching on size, demographics, and resources is methodologically sound. However, all districts are in Iowa — a Midwestern, predominantly rural/suburban state — limiting direct generalizability to urban districts or other regions. Sample size is appropriate for a matched case study design.</td>
+        </tr>
+        <tr>
+          <td class="criterion">E — Execution</td>
+          <td class="score-cell"><span class="score-pill mid">3</span></td>
+          <td>Mixed-methods design using interviews, board observations, document review, and student outcome data. The matched-pair structure is the study's strongest methodological asset — comparing boards operating in essentially the same resource environment. However, the design is observational and cannot establish causation. The research team documented governance behaviors but could not rule out reverse causation (higher-performing districts may attract boards that govern better, rather than the reverse).</td>
+        </tr>
+        <tr>
+          <td class="criterion">A — Analysis</td>
+          <td class="score-cell"><span class="score-pill">4</span></td>
+          <td>The authors are careful to describe their findings as associations and patterns, not causal chains. The report explicitly acknowledges that it cannot prove governance causes achievement. Correlation between identified board behaviors and student outcomes is presented transparently, with limitations noted. The consistency of findings across multiple matched pairs strengthens the observational case without overstating it.</td>
+        </tr>
+        <tr>
+          <td class="criterion">R — Relevance</td>
+          <td class="score-cell"><span class="score-pill mid">3</span></td>
+          <td>Published in 2008 from research conducted in the early 2000s. The governance behaviors identified (mission clarity, outcome focus, superintendent collaboration) remain conceptually relevant. However, accountability policy, technology, and community demographics have shifted considerably since data collection. The Iowa context may not translate directly to urban or large suburban districts in states with different political and policy environments.</td>
+        </tr>
+        <tr>
+          <td class="criterion">L — Links</td>
+          <td class="score-cell"><span class="score-pill low">2</span></td>
+          <td>Funded and published by the Iowa Association of School Boards (IASB), a membership organization that represents school boards. The study's conclusion — that school board governance matters and that boards can be trained to govern better — directly supports IASB's organizational mission and product offerings. This does not mean the findings are wrong, but the funder relationship introduces a meaningful conflict of interest that the report does not prominently acknowledge. Independent replication has been partial at best.</td>
+        </tr>
+        <tr>
+          <td class="criterion">S — Scope</td>
+          <td class="score-cell"><span class="score-pill">4</span></td>
+          <td>The study examines multiple governance dimensions: board member knowledge, role clarity, superintendent relationships, community engagement, and outcome monitoring practices. It situates findings within a broader framework of effective schools research. The matched-pair structure enables cross-district comparison. Limitations noted: Iowa only, early 2000s data, no longitudinal tracking of whether governance improvements led to achievement improvements over time.</td>
+        </tr>
+        <tr class="total-row">
+          <td class="criterion">Total</td>
+          <td class="score-cell">19/30</td>
+          <td><strong>Score band 12–19:</strong> Use with significant caveats. Suitable for hypothesis generation and illustrating governance concepts, but should not be used as primary evidence to justify specific governance mandates or training investments without corroborating research.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="section-heading">Key findings</h2>
+    <div class="key-findings">
+      <ul>
+        <li>Boards in high-performing districts consistently articulated a clear, shared understanding of district mission focused on student learning. In low-performing matched districts, board members often described mission in different terms from one another and from their superintendent.</li>
+        <li>Board members in high-performing districts demonstrated substantially greater knowledge of curriculum, instruction, and student achievement data — not to make instructional decisions, but to ask better questions and evaluate superintendent performance against learning outcomes.</li>
+        <li>The board-superintendent relationship in high-performing districts was characterized by clear role separation: boards set direction and monitored results; superintendents managed implementation. In low-performing districts, this boundary was frequently blurred.</li>
+        <li>Community engagement patterns differed: high-performing district boards were more proactive in communicating student outcome data to the public and in framing board decisions in terms of student impact.</li>
+      </ul>
+    </div>
+
+    <div class="limitations-box">
+      <div class="label">Limitations (as noted by the study and by this review)</div>
+      <ul>
+        <li>Single state (Iowa) limits geographic and demographic generalizability.</li>
+        <li>Data collected in early 2000s; policy and demographic context has changed.</li>
+        <li>Causal direction cannot be established — does better governance produce better outcomes, or do better-performing districts attract more effective governance?</li>
+        <li>Funder (IASB) has organizational interest in findings that affirm board governance importance.</li>
+        <li>No longitudinal follow-up to test whether governance improvements in low-performing districts produced achievement gains.</li>
+        <li>Participating districts volunteered, which may introduce selection bias toward more engaged boards.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-heading">Practitioner implications</h2>
+    <div class="practitioner-box">
+      <div class="label">For board members and governance practitioners</div>
+      <ul>
+        <li>The behavioral differences identified — mission clarity, outcome knowledge, role separation — are actionable regardless of causation uncertainty. Boards can assess themselves against these dimensions without needing causal proof that governance drives achievement.</li>
+        <li>Use these findings to structure board self-assessment conversations, not to set quantitative performance expectations. The study describes patterns, not thresholds.</li>
+        <li>The superintendent relationship findings are particularly actionable: boards in high-performing districts could clearly articulate what decisions belonged to the board versus the superintendent. Developing a written role-clarity document is a low-cost, high-signal governance intervention.</li>
+        <li>Do not cite this study alone to justify large governance training investments. Pair it with more recent corroborating research and local contextual data.</li>
+        <li>The mission clarity finding has the most practical uptake: convene your board and superintendent to independently write out the district's top three student outcome priorities. Compare answers. Alignment or its absence is diagnostic data.</li>
+      </ul>
+    </div>
+
+    <div class="board-synthesis">
+      <div class="label">What this means for boards — editorial synthesis</div>
+      <p>The Lighthouse Inquiry's influence in governance circles exceeds what its methodology can support — and practitioners should know that. A 19/30 PEARLS score means this study is worth reading and discussing, but it cannot by itself justify the claim that governance training causally improves student outcomes.</p>
+      <p>What the study does well is describe what boards in higher-performing environments actually look like in practice. That observational portrait is useful. Boards that cannot articulate a shared mission, that are unaware of their own student outcome data, and whose members blur the line with superintendent operations are likely not helping students — regardless of what Iowa districts in the early 2000s showed.</p>
+      <p>The standard this site holds: governance that benefits children requires boards to be clear on what they're trying to achieve, honest about whether they're achieving it, and disciplined about not substituting operational involvement for strategic oversight. The Lighthouse Inquiry supports that framework qualitatively. We await stronger causal evidence.</p>
+    </div>
+
+    <div class="citation-block">
+      <div class="label">Full citation</div>
+      <p>Delagardelle, M.L. (2008). The Lighthouse Inquiry: Examining the role of school board leadership in the improvement of student achievement. In T.L. Alsbury (Ed.), <em>The Future of School Board Governance: Relevancy and Revelation</em> (pp. 191–223). Rowman &amp; Littlefield Education.</p>
+      <p style="margin-top: 0.75rem; font-style: normal; font-size: 0.8rem; color: var(--text-light);">No DOI available (book chapter). Iowa Association of School Boards original reports available through IASB: <a href="https://www.ia-sb.org" target="_blank" rel="noopener">ia-sb.org</a></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">School Board Research</div>
+        <div class="footer-tagline">Making governance evidence accessible.</div>
+      </div>
+      <div class="footer-right">
+        <div>© 2026 School Board Research</div>
+        <div style="margin-top:0.25rem;">schoolboardresearch.com</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
