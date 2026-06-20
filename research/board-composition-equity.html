@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Does Who Sits on the Board Matter? Board Composition and Equity Outcomes — School Board Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --slate: #4A5568;
+      --parchment: #FDF6E3;
+      --forest: #2D5016;
+      --gold: #B7791F;
+      --light-parchment: #FDFAF4;
+      --primary: #2C5F2D;
+      --primary-dk: #1A3A1A;
+      --accent: #97BC62;
+      --border: #DDD9D0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Source Sans Pro', sans-serif; background: var(--light-parchment); color: var(--slate); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--parchment);
+      border-bottom: 3px solid var(--forest);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; width: 100%; }
+    .nav-logo { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.05rem; color: var(--slate); text-decoration: none; }
+    .nav-logo span { color: var(--forest); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: 'Source Sans Pro', sans-serif; font-weight: 600; font-size: 0.875rem; color: var(--slate); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 2px solid transparent; padding-bottom: 2px; transition: border-color 0.2s, color 0.2s; }
+    .nav-links a:hover { color: var(--forest); border-bottom-color: var(--forest); }
+
+    .post-header { background: var(--slate); padding: 3.5rem 2rem 3rem; }
+    .post-header-inner { max-width: 780px; margin: 0 auto; }
+    .back-link { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(253,246,227,0.65); text-decoration: none; margin-bottom: 1.5rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--parchment); }
+    .citation-tag { display: inline-block; font-size: 0.78rem; font-weight: 600; color: var(--gold); border: 1.5px solid var(--gold); padding: 0.25rem 0.65rem; margin-bottom: 1.25rem; font-style: italic; }
+    .post-header h1 { font-family: 'Merriweather', serif; font-weight: 700; font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.3; color: var(--parchment); margin-bottom: 1rem; }
+    .post-meta { font-size: 0.8rem; color: rgba(253,246,227,0.6); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .post-body { max-width: 780px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .post-body h2 { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.15rem; color: var(--forest); margin-top: 2.5rem; margin-bottom: 0.85rem; }
+    .post-body p { font-size: 1rem; color: var(--slate); margin-bottom: 1.25rem; line-height: 1.8; }
+
+    .finding-box { background: var(--forest); color: var(--parchment); padding: 1.5rem 1.75rem; margin: 2.5rem 0; }
+    .finding-box strong { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.6rem; }
+    .finding-box p { font-size: 0.95rem; color: rgba(253,246,227,0.9); margin-bottom: 0; }
+
+    .callout { background: var(--parchment); border-left: 4px solid var(--gold); padding: 1.25rem 1.5rem; margin: 2.5rem 0; font-size: 0.9rem; color: #4a4838; }
+    .callout strong { display: block; font-weight: 600; color: var(--slate); margin-bottom: 0.4rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .pearls-table { background: var(--parchment); border: 1.5px solid #c8b87a; margin: 2.5rem 0; padding: 1.75rem; }
+    .pearls-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.25rem; border-bottom: 2px solid var(--forest); padding-bottom: 0.75rem; }
+    .pearls-title { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1rem; color: var(--forest); }
+    .pearls-total { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.75rem; color: var(--forest); }
+    .pearls-row { display: grid; grid-template-columns: 2rem 7rem 3rem 1fr auto; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #e5ddb8; }
+    .pearls-row:last-child { border-bottom: none; }
+    .pearls-letter { font-family: 'Merriweather', serif; font-weight: 700; font-size: 1.1rem; color: var(--gold); }
+    .pearls-label { font-size: 0.875rem; font-weight: 600; color: var(--slate); }
+    .pearls-score { font-size: 0.875rem; font-weight: 700; color: var(--forest); text-align: right; }
+    .pearls-bar { background: #e5ddb8; height: 6px; border-radius: 3px; min-width: 80px; }
+    .pearls-fill { background: var(--forest); height: 6px; border-radius: 3px; }
+    .pearls-note { font-size: 0.78rem; color: #6b6040; font-style: italic; min-width: 160px; text-align: right; }
+    .pearls-verdict { margin-top: 1rem; padding-top: 0.75rem; border-top: 2px solid var(--forest); display: flex; gap: 0.75rem; align-items: baseline; }
+    .verdict-label { font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); }
+    .verdict-text { font-size: 0.875rem; color: var(--slate); font-style: italic; }
+
+    .badge { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--gold); color: var(--parchment); padding: 0.2rem 0.6rem; margin-bottom: 1rem; }
+
+    footer { background: var(--slate); color: var(--parchment); padding: 2.5rem 2rem; text-align: center; }
+    footer p { font-size: 0.875rem; color: rgba(253,246,227,0.78); margin-bottom: 0.4rem; }
+    footer p:first-child { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--parchment); font-weight: 700; margin-bottom: 0.5rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">School Board <span>Research</span></a>
+    <ul class="nav-links">
+      <li><a href="/#research">Research</a></li>
+      <li><a href="/methodology.html">Methodology</a></li>
+      <li><a href="/search.html">Search</a></li>
+      <li><a href="/about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <a href="/#research" class="back-link">&#8592; Back to Research</a>
+    <div class="badge">Comparative Policy Study</div>
+    <div class="citation-tag">[Meier &amp; England, 1984; Berkman &amp; Plutzer, 2005]</div>
+    <h1>Does Who Sits on the Board Matter? Board Composition and Equity Outcomes</h1>
+    <div class="post-meta">Research Summary &middot; June 2026 &middot; Comparative Political Science</div>
+  </div>
+</div>
+
+<div class="post-body">
+
+  <p>The question of whether board composition — who actually sits on the board, not just how they behave — affects educational equity is one of the oldest and most politically charged in school board governance research. Two foundational works, separated by two decades, anchor what we know.</p>
+
+  <div class="finding-box">
+    <strong>Core Finding</strong>
+    <p>Demographically representative boards show modest but consistent associations with equity-related policy adoption, including desegregation efforts, bilingual program expansion, and discipline equity policies. The direct effect on student outcomes is weaker and more mediated, but policy adoption differences are durable across contexts.</p>
+  </div>
+
+  <h2>The Foundational Research</h2>
+  <p>Meier and England (1984) examined the relationship between Black representation on school boards and educational policy outputs across 82 large urban school districts. They found that districts with higher Black representation on their boards were more likely to adopt policies reducing overrepresentation of Black students in special education and underrepresentation in gifted programs. This was an observational study across districts — it cannot establish causation — but the relationship was consistent and statistically significant after controlling for other district characteristics.</p>
+  <p>Berkman and Plutzer (2005) examined a much larger sample — effectively the full universe of American school districts — in <em>Ten Thousand Democracies: Politics and Public Opinion in America's School Districts.</em> They found that board composition correlates with policy preferences and adoption patterns across a range of domains. Districts whose boards reflect their community demographics are more likely to adopt policies that community members prefer, which is (somewhat tautologically) also consistent with democratic theory.</p>
+
+  <h2>What This Research Does and Doesn't Show</h2>
+  <p>Neither study demonstrates that representative board composition directly improves student outcomes. The pathway, if one exists, runs through policy adoption, which in turn requires successful implementation, which requires administrative capacity and teacher practice change. Studies that have attempted to trace the full chain from board composition to student outcomes find much weaker relationships, and they often fail to account for confounders.</p>
+  <p>This is not a reason to dismiss the research. Policy adoption is itself a meaningful outcome in democratic governance. If representative boards adopt more equitable policies, that matters — even if the outcome effects are smaller or more diffuse than advocates sometimes claim. Democratic legitimacy and governance responsiveness are values independent of their instrumental effect on test scores.</p>
+
+  <h2>The Researcher Diversity Limitation</h2>
+  <p>Most school board composition research examines racial and ethnic representation. Research on gender composition, socioeconomic representation, and other forms of board diversity is thinner. This is a gap in the literature, not a conclusion about those dimensions. We don't know what we haven't measured.</p>
+  <p>There is also a temporal question the existing research does not resolve: does the effect of composition on policy adoption persist over time as the political context changes, or do early gains in representation lead to diminishing governance returns as representative board members align with institutional culture? The literature does not yet have good answers here.</p>
+
+  <h2>Practitioner Implications</h2>
+  <p>The research supports the proposition that board composition matters for policy equity, particularly in districts with demographic diversity that is not reflected on the board. The effect on direct student outcomes is more uncertain. If your district's board does not reflect its community demographics, the research suggests that representation matters — but that representation alone, without substantive policy change and implementation capacity, will not produce student outcome improvements.</p>
+  <p>For governance reformers: the research justifies attention to who is on the board, not just how the board behaves. But it also warns against treating composition change as a sufficient governance improvement. Representation is a necessary but not sufficient condition for equity-oriented governance in demographically diverse districts.</p>
+
+  <div class="pearls-table">
+    <div class="pearls-header">
+      <div class="pearls-title">PEARLS Quality Assessment</div>
+      <div class="pearls-total">22 / 30</div>
+    </div>
+
+    <div class="pearls-row">
+      <div class="pearls-letter">P</div>
+      <div class="pearls-label">Population</div>
+      <div class="pearls-score">4/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:80%"></div></div>
+      <div class="pearls-note">Large N across many districts (Berkman &amp; Plutzer examined essentially all US districts)</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">E</div>
+      <div class="pearls-label">Evidence</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Observational/comparative; no randomization; controls for confounders but cannot rule out selection</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">A</div>
+      <div class="pearls-label">Attribution</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Correlation, not causation; authors are appropriately careful; policy advocates sometimes overstate</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">R</div>
+      <div class="pearls-label">Relevance</div>
+      <div class="pearls-score">3/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:60%"></div></div>
+      <div class="pearls-note">Foundational studies are 20–40 years old; democratic governance context has changed; findings directionally stable</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">L</div>
+      <div class="pearls-label">Legitimacy</div>
+      <div class="pearls-score">5/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:100%"></div></div>
+      <div class="pearls-note">Academic funding (NSF, university), no commercial conflicts</div>
+    </div>
+    <div class="pearls-row">
+      <div class="pearls-letter">S</div>
+      <div class="pearls-label">Scope</div>
+      <div class="pearls-score">4/5</div>
+      <div class="pearls-bar"><div class="pearls-fill" style="width:80%"></div></div>
+      <div class="pearls-note">Addresses multiple policy domains and demographic dimensions; governance-to-outcomes chain is understudied</div>
+    </div>
+
+    <div class="pearls-verdict">
+      <div class="verdict-label">Verdict</div>
+      <div class="verdict-text">Informative — above the untrustworthy threshold, below fully trustworthy. Treat as informative context for governance decisions, not prescriptive evidence.</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>On Interpreting a 22/30 Score</strong>
+    A PEARLS score of 22/30 means this research is worth knowing about and appropriate to consider — it is not junk science. But the causal pathway from composition to student outcomes has not been rigorously established, and implementation contexts vary significantly. Use this as one input, not a directive.
+  </div>
+
+</div>
+
+<footer>
+  <p>School Board Research</p>
+  <p>Evidence-based resources for governance practitioners and policymakers.</p>
+  <p style="margin-top:1rem;"><a href="/#research">Research</a> &nbsp;&middot;&nbsp; <a href="/methodology.html">Methodology</a> &nbsp;&middot;&nbsp; <a href="/about.html">About</a></p>
+</footer>
+
+</body>
+</html>
