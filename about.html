@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — School Board Research</title>
+  <meta name="description" content="Making peer-reviewed governance evidence accessible to the people who need it most.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #2C5F2D;
+      --primary-dk: #1A3A1A;
+      --accent: #97BC62;
+      --accent-lt: #C8DFA3;
+      --bg: #F8F6F2;
+      --bg-cream: #F0EDE4;
+      --bg-hero: #EDF5EE;
+      --white: #FFFFFF;
+      --text: #1A1A1A;
+      --text-muted: #555;
+      --text-light: #888;
+      --border: #DDD9D0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--primary-dk);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-lt);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 60%, #3a7a3c 100%);
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(151,188,98,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(151,188,98,0.15);
+      border: 1px solid rgba(151,188,98,0.3);
+      border-radius: 2px;
+      padding: 0.3rem 0.85rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-family: 'Merriweather', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .page-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── INTRO BAND ── */
+    .intro-band {
+      background: var(--bg-hero);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem;
+    }
+
+    .intro-band-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .intro-band h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .intro-band p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .who-section {
+      padding: 4rem 2rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .who-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-heading {
+      font-family: 'Merriweather', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 2.2rem;
+      line-height: 1.3;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .audience-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.4rem;
+      border-top: 3px solid var(--accent);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .audience-card:hover {
+      box-shadow: 0 4px 18px rgba(44,95,45,0.1);
+      transform: translateY(-2px);
+    }
+
+    .audience-card-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--accent-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .audience-card-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--primary);
+    }
+
+    .audience-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+
+    .audience-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── SOURCES ── */
+    .sources-section {
+      padding: 4rem 2rem;
+      background: var(--bg-cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sources-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .sources-section-intro p {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .sources-section-intro p + p {
+      margin-top: 1rem;
+    }
+
+    .sources-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .source-group h4 {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent-lt);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .source-group ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .source-group ul li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      padding: 0.3rem 0 0.3rem 1rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .source-group ul li:last-child {
+      border-bottom: none;
+    }
+
+    .source-group ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .source-exclusion {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--text-light);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── PEARLS ── */
+    .pearls-section {
+      padding: 4rem 2rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pearls-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .pearls-letters {
+      display: flex;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pearls-letter {
+      width: 52px;
+      height: 52px;
+      border-radius: 6px;
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pearls-letter span:first-child {
+      font-family: 'Merriweather', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .pearls-letter span:last-child {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-top: 2px;
+    }
+
+    .pearls-description p {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .pearls-description a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .pearls-description a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .score-bands {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .score-band {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .score-band-value {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      min-width: 42px;
+      text-align: center;
+    }
+
+    .score-band-desc {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .score-band-desc strong {
+      display: block;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .score-band.high {
+      background: #EDF5EE;
+      border-color: #b5d9b6;
+    }
+    .score-band.high .score-band-value { color: var(--primary); }
+    .score-band.high .score-band-desc { color: var(--primary-dk); }
+
+    .score-band.mid {
+      background: #FEFDF7;
+      border-color: #e8e2ca;
+    }
+    .score-band.mid .score-band-value { color: #7a6f2e; }
+    .score-band.mid .score-band-desc { color: #5c5120; }
+
+    .score-band.low {
+      background: #FDF5F5;
+      border-color: #e8c8c8;
+    }
+    .score-band.low .score-band-value { color: #8b3a3a; }
+    .score-band.low .score-band-desc { color: #6b2a2a; }
+
+    /* ── EDITORIAL STANCE ── */
+    .editorial-section {
+      padding: 4rem 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .editorial-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+    }
+
+    .editorial-left p {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .distinction-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .distinction-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.96rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .distinction-list li:last-child {
+      border-bottom: none;
+    }
+
+    .distinction-list li::before {
+      content: 'vs.';
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-lt);
+      border-radius: 3px;
+      padding: 0.15rem 0.4rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .what-we-dont {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+    }
+
+    .what-we-dont h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 1rem;
+    }
+
+    .dont-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .dont-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .dont-list li:last-child {
+      border-bottom: none;
+    }
+
+    .dont-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fdecea;
+      border: 1px solid #e8b4b0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .dont-icon svg {
+      width: 10px;
+      height: 10px;
+      fill: #c0392b;
+    }
+
+    /* ── LANDSCAPE NOTE ── */
+    .landscape-section {
+      padding: 4rem 2rem;
+      background: var(--primary-dk);
+    }
+
+    .landscape-section-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .landscape-section .section-label {
+      color: var(--accent-lt);
+    }
+
+    .landscape-section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.35;
+    }
+
+    .landscape-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .landscape-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .landscape-section strong {
+      color: var(--accent-lt);
+      font-weight: 600;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary-dk);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'Merriweather', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+    .footer-tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.25rem;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      text-align: right;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 2rem; }
+      .intro-band-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .audience-grid { grid-template-columns: 1fr 1fr; }
+      .sources-section-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .pearls-section-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .editorial-section-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.85rem; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .audience-grid { grid-template-columns: 1fr; }
+      .sources-columns { grid-template-columns: 1fr; }
+      .pearls-letters { gap: 0.4rem; }
+      .pearls-letter { width: 44px; height: 44px; }
+      .pearls-letter span:first-child { font-size: 1.1rem; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-copy { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">School Board <span>Research</span></a>
+      <ul class="nav-links">
+        <li><a href="/#research">Research</a></li>
+        <li><a href="/methodology.html">Methodology</a></li>
+        <li><a href="/search.html">Search</a></li>
+        <li><a href="/about.html" class="active">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">About This Site</div>
+      <h1>About School Board Research</h1>
+      <p class="hero-subtitle">Making peer-reviewed governance evidence accessible to the people who need it most.</p>
+    </div>
+  </section>
+
+  <!-- INTRO: What this site does -->
+  <section class="intro-band">
+    <div class="intro-band-inner">
+      <div>
+        <h2>What This Site Does</h2>
+        <p>We read peer-reviewed research on school board governance and translate it for practitioners — board members, superintendents, district administrators, informed community members, and researchers who don't have journal access.</p>
+      </div>
+      <div>
+        <p>Governance research is buried in academic journals with paywalls, jargon, and methodology sections that assume statistical literacy most practitioners don't have time to develop.</p>
+        <p style="margin-top: 1rem;">We do the reading, assess the quality, and surface what matters — with clear notes about what the evidence actually shows, what it doesn't show, and how confident we are.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="who-section">
+    <div class="who-section-inner">
+      <div class="section-label">Audience</div>
+      <h2 class="section-heading">Who It's For</h2>
+      <div class="audience-grid">
+
+        <div class="audience-card">
+          <div class="audience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+            </svg>
+          </div>
+          <h3>School Board Members</h3>
+          <p>Board members who want to govern based on evidence, not received wisdom or advocacy talking points.</p>
+        </div>
+
+        <div class="audience-card">
+          <div class="audience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6h-1V4c0-1.1-.9-2-2-2H7C5.9 2 5 2.9 5 4v2H4c-1.1 0-2 .9-2 2v3c0 1.7 1.2 3.2 2.8 3.6C5.4 17 8.4 19 12 19s6.6-2 7.2-4.4C20.8 14.2 22 12.7 22 11V8c0-1.1-.9-2-2-2zM7 4h10v2H7V4zm5 13c-2.9 0-5-1.6-5-4V8h10v5c0 2.4-2.1 4-5 4z"/>
+            </svg>
+          </div>
+          <h3>Superintendents</h3>
+          <p>Superintendents who need to understand what research says about their relationship with the board and governance structures.</p>
+        </div>
+
+        <div class="audience-card">
+          <div class="audience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+            </svg>
+          </div>
+          <h3>District Administrators &amp; Coaches</h3>
+          <p>Administrators and governance coaches working on board development who need reliable research foundations.</p>
+        </div>
+
+        <div class="audience-card">
+          <div class="audience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3>Policy Researchers</h3>
+          <p>Researchers who want accessible summaries as a starting point before diving into primary sources.</p>
+        </div>
+
+        <div class="audience-card">
+          <div class="audience-card-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <h3>Informed Community Members</h3>
+          <p>Community members who want to hold their board accountable to evidence — not anecdote or political pressure.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE SELECT RESEARCH -->
+  <section class="sources-section">
+    <div class="sources-section-inner">
+      <div class="sources-section-intro">
+        <div class="section-label">Selection</div>
+        <h2 class="section-heading">How We Select Research</h2>
+        <p>We look for published research on school governance, accountability structures, board composition, superintendent leadership, and related governance topics.</p>
+        <p>We prioritize peer-reviewed journals, established policy research institutions, and authoritative survey data. Meta-analyses and systematic reviews take precedence when available.</p>
+        <div class="source-exclusion">
+          <strong style="display:block; margin-bottom:0.3rem; color: var(--text); font-size:0.9rem;">What we don't summarize</strong>
+          Preprints, advocacy papers, or promotional materials from consulting firms or product vendors are excluded from our research base.
+        </div>
+      </div>
+      <div>
+        <div class="sources-columns">
+          <div class="source-group">
+            <h4>Peer-Reviewed Journals</h4>
+            <ul>
+              <li>Journal of Education Policy</li>
+              <li>American Educational Research Journal</li>
+              <li>Educational Administration Quarterly</li>
+              <li>Journal of Educational Administration</li>
+              <li>Urban Education</li>
+            </ul>
+          </div>
+          <div class="source-group">
+            <h4>Policy Research</h4>
+            <ul>
+              <li>RAND Corporation</li>
+              <li>Brookings Institution</li>
+              <li>Thomas B. Fordham Institute</li>
+              <li>Education Research Alliance</li>
+            </ul>
+          </div>
+          <div class="source-group" style="grid-column: 1 / -1;">
+            <h4>Survey Data</h4>
+            <ul>
+              <li>AASA (American Association of School Administrators)</li>
+              <li>NSBA (National School Boards Association)</li>
+              <li>State education agencies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEARLS -->
+  <section class="pearls-section">
+    <div class="pearls-section-inner">
+      <div class="pearls-description">
+        <div class="section-label">Evaluation</div>
+        <h2 class="section-heading">Our Evaluation Standard: PEARLS</h2>
+        <div class="pearls-letters">
+          <div class="pearls-letter"><span>P</span><span>Part.</span></div>
+          <div class="pearls-letter"><span>E</span><span>Exec.</span></div>
+          <div class="pearls-letter"><span>A</span><span>Anal.</span></div>
+          <div class="pearls-letter"><span>R</span><span>Relev.</span></div>
+          <div class="pearls-letter"><span>L</span><span>Links</span></div>
+          <div class="pearls-letter"><span>S</span><span>Scope</span></div>
+        </div>
+        <p>Every study we summarize is evaluated using the PEARLS framework — a 6-criterion, 30-point scoring system that assesses: <strong>P</strong>articipants, <strong>E</strong>xecution, <strong>A</strong>nalysis, <strong>R</strong>elevance, <strong>L</strong>inks (funding), and <strong>S</strong>cope.</p>
+        <p>We display the score prominently so you can calibrate how much weight to give the research. Most school board governance research falls in the 18–24 range — and our summaries are candid about what that means.</p>
+        <p><a href="/methodology.html">Read the full PEARLS framework →</a></p>
+      </div>
+      <div>
+        <div style="margin-bottom: 1rem;">
+          <div class="section-label">Score Guide</div>
+          <h3 style="font-family: 'Merriweather', serif; font-size: 1.05rem; color: var(--primary-dk); margin-bottom: 1rem;">How to read PEARLS scores</h3>
+        </div>
+        <div class="score-bands">
+          <div class="score-band high">
+            <div class="score-band-value">26–30</div>
+            <div class="score-band-desc">
+              <strong>Trustworthy</strong>
+              Strong methodology; findings warrant serious weight in decisions.
+            </div>
+          </div>
+          <div class="score-band mid">
+            <div class="score-band-value">20–25</div>
+            <div class="score-band-desc">
+              <strong>Useful with caveats</strong>
+              Common range for governance research; limitations are noted.
+            </div>
+          </div>
+          <div class="score-band low">
+            <div class="score-band-value">&lt; 20</div>
+            <div class="score-band-desc">
+              <strong>Untrustworthy for decisions</strong>
+              Significant methodological concerns; reference only with caution.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL STANCE + WHAT WE DON'T DO -->
+  <section class="editorial-section">
+    <div class="editorial-section-inner">
+      <div class="editorial-left">
+        <div class="section-label">Editorial Stance</div>
+        <h2 class="section-heading">How We Report</h2>
+        <p>We report what research finds. We don't advocate for specific policies or governance models. We distinguish carefully between adjacent claims that often get conflated:</p>
+        <ul class="distinction-list">
+          <li>What a study found — what advocates claim it found</li>
+          <li>Correlation — causation</li>
+          <li>Findings that replicate across contexts — findings from a single study</li>
+          <li>Statistical significance — practical significance</li>
+        </ul>
+        <p style="margin-top: 1.25rem;">When practitioners have successfully implemented research findings at scale, we note it. When implementation has failed to replicate results, we note that too.</p>
+      </div>
+      <div>
+        <div class="what-we-dont">
+          <h3>What We Don't Do</h3>
+          <ul class="dont-list">
+            <li>
+              <div class="dont-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </div>
+              Recommend specific governance models or board structures
+            </li>
+            <li>
+              <div class="dont-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </div>
+              Consult for districts (no conflicts of interest to disclose)
+            </li>
+            <li>
+              <div class="dont-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </div>
+              Accept funding from organizations with interests in school board governance outcomes
+            </li>
+            <li>
+              <div class="dont-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </div>
+              Suppress inconvenient findings
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANDSCAPE NOTE -->
+  <section class="landscape-section">
+    <div class="landscape-section-inner">
+      <div class="section-label">A Note on the Research Landscape</div>
+      <h2>The Evidence Is Imperfect. We're Honest About That.</h2>
+      <p>School board governance is not a well-funded research area. Most studies have methodological limitations — small samples, observational designs, short time horizons, and limited external validity. We're transparent about this throughout our summaries. <strong>The PEARLS scores reflect these limitations honestly.</strong></p>
+      <p>This means practitioners sometimes have to make decisions with imperfect evidence. That's normal in public policy. Our goal is to make the imperfect evidence as clear as possible — not to oversell what research can deliver.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">School Board <span>Research</span></div>
+        <div class="footer-tagline">Making governance evidence accessible</div>
+      </div>
+      <div class="footer-copy">
+        &copy; 2025 School Board Research.<br>
+        All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
