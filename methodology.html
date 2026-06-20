@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology — The PEARLS Framework | School Board Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design Tokens ── */
+    :root {
+      --primary:     #2C5F2D;
+      --primary-dk:  #1A3A1A;
+      --accent:      #97BC62;
+      --accent-lt:   #C8DFA3;
+      --bg:          #F8F6F2;
+      --bg-cream:    #F0EDE4;
+      --bg-hero:     #EDF5EE;
+      --white:       #FFFFFF;
+      --text:        #1A1A1A;
+      --text-muted:  #555;
+      --text-light:  #888;
+      --border:      #DDD9D0;
+
+      /* Article palette — used alongside main palette */
+      --slate:       #4A5568;
+      --parchment:   #FDF6E3;
+      --forest:      #2D5016;
+      --gold:        #B7791F;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--primary-dk);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--bg-hero);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem 3rem;
+    }
+
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.01em;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      margin: 0 0.4rem;
+      color: var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--primary-dk);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .hero-score-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    .hero-score-badge .score-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-score-badge .score-number {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .hero-score-badge .score-number.total   { color: var(--primary); }
+    .hero-score-badge .score-number.low     { color: #c0392b; }
+    .hero-score-badge .score-number.high    { color: var(--primary); }
+
+    .hero-score-badge .score-label {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    .hero-score-badge .divider {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    /* ── Layout ── */
+    .page-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+    }
+
+    /* ── Section spacing ── */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    section h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-lt);
+    }
+
+    section p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Intro callout ── */
+    .intro-callout {
+      background: var(--parchment);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.97rem;
+      color: var(--slate);
+    }
+
+    .intro-callout strong {
+      color: var(--text);
+    }
+
+    /* ── PEARLS criteria ── */
+    .criteria-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .criterion {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .criterion-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-hero);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .criterion-letter {
+      font-family: 'Merriweather', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      min-width: 56px;
+      text-align: center;
+    }
+
+    .criterion-title-block {
+      flex: 1;
+    }
+
+    .criterion-name {
+      font-family: 'Merriweather', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 0.2rem;
+    }
+
+    .criterion-tagline {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .criterion-score-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--primary);
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .criterion-body {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .criterion-body > p {
+      font-size: 0.97rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .score-rubric {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .rubric-row {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.6rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .rubric-row.score-1 { background: rgba(192, 57, 43, 0.06); }
+    .rubric-row.score-3 { background: rgba(183, 121, 31, 0.07); }
+    .rubric-row.score-5 { background: rgba(44, 95, 45, 0.07); }
+
+    .rubric-score {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .rubric-row.score-1 .rubric-score { color: #c0392b; }
+    .rubric-row.score-3 .rubric-score { color: var(--gold); }
+    .rubric-row.score-5 .rubric-score { color: var(--primary); }
+
+    .rubric-text {
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── Score interpretation ── */
+    .score-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .score-table thead tr {
+      background: var(--primary-dk);
+      color: var(--white);
+    }
+
+    .score-table th {
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .score-table td {
+      padding: 0.8rem 1.1rem;
+      border-top: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .score-table tbody tr:nth-child(even) {
+      background: var(--bg-cream);
+    }
+
+    .score-table .range { font-weight: 700; font-size: 1.05rem; }
+
+    .score-table .label-severe  { color: #c0392b; font-weight: 700; }
+    .score-table .label-insuff  { color: #b7600a; font-weight: 700; }
+    .score-table .label-inform  { color: var(--gold); font-weight: 700; }
+    .score-table .label-trust   { color: var(--primary); font-weight: 700; }
+
+    .score-bar-wrap {
+      margin-top: 1.5rem;
+    }
+
+    .score-bar {
+      display: flex;
+      height: 36px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .score-bar-seg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
+
+    .score-bar-seg.seg-severe  { background: #c0392b; flex: 7; }
+    .score-bar-seg.seg-insuff  { background: #e07a1a; flex: 7; }
+    .score-bar-seg.seg-inform  { background: var(--gold); flex: 6; }
+    .score-bar-seg.seg-trust   { background: var(--primary); flex: 5; }
+
+    .score-bar-labels {
+      display: flex;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .score-bar-labels span { flex: 1; text-align: center; }
+
+    /* ── Examples ── */
+    .examples-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .example-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .example-header {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .example-header-left {}
+
+    .example-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary-dk);
+      margin-bottom: 0.25rem;
+    }
+
+    .example-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .example-total {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .example-total .score-num {
+      font-family: 'Merriweather', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .example-total .score-denom {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .example-total .score-verdict {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .verdict-insufficient .score-num { color: #b7600a; }
+    .verdict-insufficient .score-verdict { color: #b7600a; }
+
+    .verdict-untrustworthy .score-num { color: #c0392b; }
+    .verdict-untrustworthy .score-verdict { color: #c0392b; }
+
+    .example-body {
+      padding: 1.1rem 1.5rem;
+    }
+
+    .pearls-scores {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .pearl-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--bg-cream);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 0.75rem;
+      min-width: 52px;
+    }
+
+    .pearl-chip .pearl-letter {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .pearl-chip .pearl-val {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .pearl-val-1 { color: #c0392b; }
+    .pearl-val-2 { color: #c0392b; }
+    .pearl-val-3 { color: var(--gold); }
+    .pearl-val-4 { color: var(--primary); }
+    .pearl-val-5 { color: var(--primary); }
+
+    .example-notes {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .example-notes ul {
+      padding-left: 1.2rem;
+      margin-top: 0.35rem;
+    }
+
+    .example-notes li {
+      margin-bottom: 0.3rem;
+    }
+
+    .example-verdict-line {
+      margin-top: 0.9rem;
+      padding: 0.65rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .verdict-insufficient .example-verdict-line {
+      background: rgba(183, 121, 31, 0.1);
+      color: #7a4a00;
+      border-left: 3px solid var(--gold);
+    }
+
+    .verdict-untrustworthy .example-verdict-line {
+      background: rgba(192, 57, 43, 0.08);
+      color: #7a0000;
+      border-left: 3px solid #c0392b;
+    }
+
+    /* ── Governance section ── */
+    .governance-list {
+      margin: 1rem 0 0 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .governance-list li {
+      margin-bottom: 0.5rem;
+      font-size: 0.97rem;
+    }
+
+    .governance-callout {
+      background: var(--bg-hero);
+      border: 1px solid var(--accent-lt);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 1.1rem 1.4rem;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    /* ── Jump nav ── */
+    .jump-nav {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .jump-nav p {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-light);
+      margin-bottom: 0.7rem;
+    }
+
+    .jump-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .jump-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--bg-hero);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.88rem;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .jump-link:hover {
+      background: var(--accent-lt);
+      border-color: var(--accent);
+    }
+
+    .jump-link .jl-letter {
+      font-family: 'Merriweather', serif;
+      font-weight: 900;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--primary-dk);
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      grid-column: 1;
+    }
+
+    .footer-logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      max-width: 1140px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-score-badge { flex-direction: column; gap: 0.75rem; }
+      .hero-score-badge .divider { width: 60px; height: 1px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { gap: 1.1rem; }
+      .nav-links a { font-size: 0.82rem; }
+      .criterion-letter { font-size: 2.2rem; min-width: 44px; }
+      .score-bar-seg { font-size: 0.65rem; }
+      .example-header { flex-direction: column; }
+      .example-total { text-align: left; }
+      .pearls-scores { gap: 0.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">School Board <span>Research</span></a>
+      <ul class="nav-links">
+        <li><a href="/#research">Research</a></li>
+        <li><a href="/methodology.html" class="active">Methodology</a></li>
+        <li><a href="/search.html">Search</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        Methodology
+      </div>
+      <h1>The PEARLS Framework</h1>
+      <p class="hero-subtitle">How we evaluate governance research for trustworthiness</p>
+      <div class="hero-score-badge">
+        <div class="score-item">
+          <span class="score-number total">6–30</span>
+          <span class="score-label">Total Possible Points</span>
+        </div>
+        <div class="divider"></div>
+        <div class="score-item">
+          <span class="score-number low">Below 20</span>
+          <span class="score-label">Untrustworthy</span>
+        </div>
+        <div class="divider"></div>
+        <div class="score-item">
+          <span class="score-number high">26 or Above</span>
+          <span class="score-label">Trustworthy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Page Body ── -->
+  <main class="page-body">
+
+    <!-- Jump nav -->
+    <div class="jump-nav" aria-label="Jump to section">
+      <p>Jump to criterion</p>
+      <div class="jump-links">
+        <a class="jump-link" href="#participants"><span class="jl-letter">P</span> Participants</a>
+        <a class="jump-link" href="#execution"><span class="jl-letter">E</span> Execution</a>
+        <a class="jump-link" href="#analysis"><span class="jl-letter">A</span> Analysis</a>
+        <a class="jump-link" href="#relevance"><span class="jl-letter">R</span> Relevance</a>
+        <a class="jump-link" href="#links"><span class="jl-letter">L</span> Links</a>
+        <a class="jump-link" href="#scope"><span class="jl-letter">S</span> Scope</a>
+        <a class="jump-link" href="#scoring">Scoring</a>
+        <a class="jump-link" href="#examples">Examples</a>
+        <a class="jump-link" href="#governance">Governance Standards</a>
+      </div>
+    </div>
+
+    <!-- Introduction -->
+    <section id="intro">
+      <h2>What Is PEARLS?</h2>
+      <p>
+        The PEARLS framework is a six-criterion evaluation tool designed to help practitioners distinguish
+        research worth acting on from research that sounds compelling but doesn't hold up under scrutiny.
+        Each criterion is scored on a 1–5 scale, producing a total between 6 and 30 points.
+      </p>
+      <p>
+        PEARLS was developed specifically for school board governance — a domain where the evidence base
+        is thinner than in instructional practice, where advocacy-funded studies circulate alongside
+        rigorous academic work, and where decision-makers rarely have time for deep methodological review.
+        The framework is not a replacement for expert judgment; it's a structured starting point.
+      </p>
+      <div class="intro-callout">
+        <strong>Default to 1.</strong> Each criterion begins at the floor score unless specific, observable
+        evidence warrants a higher rating. This conservative default counteracts the natural tendency to
+        give benefit of the doubt to studies that confirm existing beliefs or come from prestigious sources.
+      </div>
+    </section>
+
+    <!-- ── The Six Criteria ── -->
+    <section id="criteria">
+      <h2>The Six PEARLS Criteria</h2>
+
+      <div class="criteria-grid">
+
+        <!-- P — Participants -->
+        <div class="criterion" id="participants">
+          <div class="criterion-header">
+            <div class="criterion-letter">P</div>
+            <div class="criterion-title-block">
+              <div class="criterion-name">Participants</div>
+              <div class="criterion-tagline">Who was studied, and how were they selected?</div>
+            </div>
+            <div class="criterion-score-badge">Score 1–5</div>
+          </div>
+          <div class="criterion-body">
+            <p>
+              Examine the sample: its size, demographic composition, and how participants were recruited
+              or selected. A study's findings are only as generalizable as its participants are representative
+              of the population you care about. Ask: are these the students, districts, or boards that
+              resemble the context where this finding would be applied?
+            </p>
+            <div class="score-rubric">
+              <div class="rubric-row score-1">
+                <div class="rubric-score">1</div>
+                <div class="rubric-text">
+                  Very small, non-representative sample with no rationale for its selection.
+                  Participants clearly mismatch the intended application context.
+                </div>
+              </div>
+              <div class="rubric-row score-3">
+                <div class="rubric-score">3</div>
+                <div class="rubric-text">
+                  Sample is adequate for the study type but has meaningful limitations in generalizability
+                  or contextual relevance to your setting.
+                </div>
+              </div>
+              <div class="rubric-row score-5">
+                <div class="rubric-score">5</div>
+                <div class="rubric-text">
+                  Large, diverse, and well-matched to the population of interest. Strong demographic
+                  and contextual relevance. Selection process is transparent and defensible.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- E — Execution -->
+        <div class="criterion" id="execution">
+          <div class="criterion-header">
+            <div class="criterion-letter">E</div>
+            <div class="criterion-title-block">
+              <div class="criterion-name">Execution</div>
+              <div class="criterion-tagline">How rigorous was the research design?</div>
+            </div>
+            <div class="criterion-score-badge">Score 1–5</div>
+          </div>
+          <div class="criterion-body">
+            <p>
+              Evaluate the methodology and study design. Well-designed studies — randomized controlled trials,
+              quasi-experimental designs, rigorous longitudinal tracking — provide substantially more robust
+              evidence than surveys, case studies, or opinion aggregation. The design should be appropriate
+              to the question being asked, and clearly described enough that it could in principle be replicated.
+            </p>
+            <div class="score-rubric">
+              <div class="rubric-row score-1">
+                <div class="rubric-score">1</div>
+                <div class="rubric-text">
+                  Methods are unclear, poorly explained, or fundamentally flawed. Design cannot
+                  support the conclusions claimed.
+                </div>
+              </div>
+              <div class="rubric-row score-3">
+                <div class="rubric-score">3</div>
+                <div class="rubric-text">
+                  Methodologically sound for its study type, but not designed to establish causal impact.
+                  Describes what is, not what works.
+                </div>
+              </div>
+              <div class="rubric-row score-5">
+                <div class="rubric-score">5</div>
+                <div class="rubric-text">
+                  Rigorous design that provides credible evidence of what works: randomized controlled trial,
+                  quasi-experimental design, or longitudinal tracking of outcomes with appropriate controls.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A — Analysis -->
+        <div class="criterion" id="analysis">
+          <div class="criterion-header">
+            <div class="criterion-letter">A</div>
+            <div class="criterion-title-block">
+              <div class="criterion-name">Analysis</div>
+              <div class="criterion-tagline">How were data interpreted and conclusions drawn?</div>
+            </div>
+            <div class="criterion-score-badge">Score 1–5</div>
+          </div>
+          <div class="criterion-body">
+            <p>
+              Assess how the data were analyzed and what conclusions were drawn from them. The central
+              question here is whether the claims match the evidence. This criterion pays particular
+              attention to the distinction between correlation and causation — one of the most frequently
+              abused distinctions in education research. Look for whether authors acknowledge what their
+              findings do and don't prove.
+            </p>
+            <div class="score-rubric">
+              <div class="rubric-row score-1">
+                <div class="rubric-score">1</div>
+                <div class="rubric-text">
+                  Conclusions are unclear, overreaching, or not supported by the data presented.
+                  Causal claims are made without causal evidence.
+                </div>
+              </div>
+              <div class="rubric-row score-3">
+                <div class="rubric-score">3</div>
+                <div class="rubric-text">
+                  Data are reasonably interpreted but some claims stretch beyond the evidence. Study
+                  limitations are only partially acknowledged.
+                </div>
+              </div>
+              <div class="rubric-row score-5">
+                <div class="rubric-score">5</div>
+                <div class="rubric-text">
+                  Analysis is transparent, precise, and well-aligned with what the design can support.
+                  The distinction between correlation and causation is explicit. Limitations are clearly
+                  acknowledged.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- R — Relevance -->
+        <div class="criterion" id="relevance">
+          <div class="criterion-header">
+            <div class="criterion-letter">R</div>
+            <div class="criterion-title-block">
+              <div class="criterion-name">Relevance</div>
+              <div class="criterion-tagline">How timely and applicable is this to your context?</div>
+            </div>
+            <div class="criterion-score-badge">Score 1–5</div>
+          </div>
+          <div class="criterion-body">
+            <p>
+              Evaluate timeliness and contextual fit. Research conducted in a different era, geography,
+              or demographic context may not transfer. Consider: when was the data actually collected
+              (not just published)? Was the context — district size, student demographics, policy environment —
+              meaningfully similar to the context in which you'd apply the findings?
+            </p>
+            <div class="score-rubric">
+              <div class="rubric-row score-1">
+                <div class="rubric-score">1</div>
+                <div class="rubric-text">
+                  Outdated research or findings from a totally irrelevant context. Using this to inform
+                  current decisions would be a stretch.
+                </div>
+              </div>
+              <div class="rubric-row score-3">
+                <div class="rubric-score">3</div>
+                <div class="rubric-text">
+                  Findings are somewhat applicable, or the topic is timely but the specific context
+                  lacks direct transferability to your situation.
+                </div>
+              </div>
+              <div class="rubric-row score-5">
+                <div class="rubric-score">5</div>
+                <div class="rubric-text">
+                  Highly timely and directly relevant. You can readily imagine drawing on this research
+                  to inform practice or policy in your specific context.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- L — Links -->
+        <div class="criterion" id="links">
+          <div class="criterion-header">
+            <div class="criterion-letter">L</div>
+            <div class="criterion-title-block">
+              <div class="criterion-name">Links</div>
+              <div class="criterion-tagline">Who funded it, and do they have a stake in the outcome?</div>
+            </div>
+            <div class="criterion-score-badge">Score 1–5</div>
+          </div>
+          <div class="criterion-body">
+            <p>
+              Examine funding sources and declared conflicts of interest. Research funded by parties
+              with a commercial or ideological stake in a particular outcome is systematically more
+              likely to produce favorable findings for that stakeholder — not necessarily through
+              fraud, but through design choices, publication decisions, and framing. This criterion
+              asks: who financed this, and what did they stand to gain?
+            </p>
+            <div class="score-rubric">
+              <div class="rubric-row score-1">
+                <div class="rubric-score">1</div>
+                <div class="rubric-text">
+                  Funded by a directly conflicted source — for example, a vendor studying the
+                  effectiveness of its own product — or funding is entirely undisclosed.
+                </div>
+              </div>
+              <div class="rubric-row score-3">
+                <div class="rubric-score">3</div>
+                <div class="rubric-text">
+                  Funding sources or institutional affiliations are unclear, but no obvious conflict
+                  of interest is apparent from available information.
+                </div>
+              </div>
+              <div class="rubric-row score-5">
+                <div class="rubric-score">5</div>
+                <div class="rubric-text">
+                  Funding is transparent, independent, and publicly supported. No conflicts of interest
+                  are declared or discoverable. Conclusions are not financially convenient for funders.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- S — Scope -->
+        <div class="criterion" id="scope">
+          <div class="criterion-header">
+            <div class="criterion-letter">S</div>
+            <div class="criterion-title-block">
+              <div class="criterion-name">Scope</div>
+              <div class="criterion-tagline">Does it account for complexity and acknowledge its own limits?</div>
+            </div>
+            <div class="criterion-score-badge">Score 1–5</div>
+          </div>
+          <div class="criterion-body">
+            <p>
+              Evaluate the breadth and depth of the study — and crucially, whether it acknowledges
+              what it doesn't explain. Research that examines multiple relevant variables, accounts
+              for contextual factors, and honestly discusses alternative explanations is more trustworthy
+              than research that treats a complex phenomenon as if one variable explains everything.
+            </p>
+            <div class="score-rubric">
+              <div class="rubric-row score-1">
+                <div class="rubric-score">1</div>
+                <div class="rubric-text">
+                  Narrow and shallow — misses key variables, skips essential context, and fails
+                  to recognize or disclose its own limitations.
+                </div>
+              </div>
+              <div class="rubric-row score-3">
+                <div class="rubric-score">3</div>
+                <div class="rubric-text">
+                  Demonstrates depth or breadth, but not both. Addresses some complexity without
+                  fully accounting for the range of factors at play.
+                </div>
+              </div>
+              <div class="rubric-row score-5">
+                <div class="rubric-score">5</div>
+                <div class="rubric-text">
+                  Comprehensive and reflective. Addresses sufficient breadth and depth. Explicitly
+                  acknowledges what the research does and doesn't explain, and where alternative
+                  interpretations are plausible.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /criteria-grid -->
+    </section>
+
+    <!-- ── Score Interpretation ── -->
+    <section id="scoring">
+      <h2>Score Interpretation</h2>
+      <p>
+        Sum the six criterion scores for a total between 6 and 30. The interpretation bands below
+        describe what the score implies for decision-making purposes. These thresholds are not
+        arbitrary cutoffs — they reflect the compounding effect of multiple weaknesses. A study
+        with multiple 2s and 3s may still be informative reading; it is not an appropriate foundation
+        for policy change.
+      </p>
+
+      <div class="score-bar-wrap" aria-label="Score range visualization">
+        <div class="score-bar">
+          <div class="score-bar-seg seg-severe">6–12</div>
+          <div class="score-bar-seg seg-insuff">13–19</div>
+          <div class="score-bar-seg seg-inform">20–25</div>
+          <div class="score-bar-seg seg-trust">26–30</div>
+        </div>
+        <div class="score-bar-labels">
+          <span>Severely Limited</span>
+          <span>Insufficient</span>
+          <span>Informative</span>
+          <span>Trustworthy</span>
+        </div>
+      </div>
+
+      <table class="score-table" style="margin-top: 1.75rem;">
+        <thead>
+          <tr>
+            <th>Score Range</th>
+            <th>Rating</th>
+            <th>What It Means for Decisions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="range label-severe">6–12</span></td>
+            <td class="label-severe">Severely Limited</td>
+            <td>Do not use as a basis for decisions. May be useful for understanding a debate's history, but has fundamental evidentiary problems.</td>
+          </tr>
+          <tr>
+            <td><span class="range label-insuff">13–19</span></td>
+            <td class="label-insuff">Insufficient</td>
+            <td>May inform curiosity but not decisions. Treat as background reading or a prompt for further inquiry — not a source of actionable evidence.</td>
+          </tr>
+          <tr>
+            <td><span class="range label-inform">20–25</span></td>
+            <td class="label-inform">Informative</td>
+            <td>Useful context that can contribute to a decision alongside stronger evidence. Exercise caution — do not rely on this study alone.</td>
+          </tr>
+          <tr>
+            <td><span class="range label-trust">26–30</span></td>
+            <td class="label-trust">Trustworthy</td>
+            <td>Appropriate basis for practice and policy decisions. Findings can be cited with confidence when the context matches your situation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ── Practice Examples ── -->
+    <section id="examples">
+      <h2>PEARLS in Practice: Three Examples</h2>
+      <p>
+        The following examples apply the PEARLS framework to well-known studies — two from outside
+        governance research, one from the intersection of health and public policy. They illustrate
+        how the framework handles a range of methodological quality, including a study that has been
+        formally retracted.
+      </p>
+
+      <div class="examples-grid">
+
+        <!-- Example 1 -->
+        <div class="example-card verdict-insufficient">
+          <div class="example-header">
+            <div class="example-header-left">
+              <div class="example-title">Hart &amp; Risley (1995) — "The 30 Million Word Gap"</div>
+              <div class="example-desc">42 families observed over 2.5 years; word exposure correlated with later vocabulary and language outcomes.</div>
+            </div>
+            <div class="example-total">
+              <div>
+                <span class="score-num">18</span>
+                <span class="score-denom">/30</span>
+              </div>
+              <div class="score-verdict">Insufficient</div>
+            </div>
+          </div>
+          <div class="example-body">
+            <div class="pearls-scores">
+              <div class="pearl-chip">
+                <span class="pearl-letter">P</span>
+                <span class="pearl-val pearl-val-2">2</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">E</span>
+                <span class="pearl-val pearl-val-3">3</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">A</span>
+                <span class="pearl-val pearl-val-3">3</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">R</span>
+                <span class="pearl-val pearl-val-4">4</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">L</span>
+                <span class="pearl-val pearl-val-4">4</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">S</span>
+                <span class="pearl-val pearl-val-2">2</span>
+              </div>
+            </div>
+            <div class="example-notes">
+              <ul>
+                <li><strong>P=2:</strong> 42 families, homogeneous and self-selected. No randomization. Sample is too small and non-diverse to support broad generalization.</li>
+                <li><strong>E=3:</strong> Careful longitudinal observation over 2.5 years — methodologically serious — but the tiny sample severely limits what can be inferred.</li>
+                <li><strong>A=3:</strong> The correlation between word exposure and outcomes is credibly documented. However, policy extrapolations routinely overstate what the original finding showed.</li>
+                <li><strong>R=4:</strong> Directly relevant to early childhood development and education policy; the topic remains active and consequential.</li>
+                <li><strong>L=4:</strong> Federally and university funded. No commercial conflicts identified.</li>
+                <li><strong>S=2:</strong> Narrowly focused on word counts. Misses socioeconomic confounders, quality of interaction, and alternative explanations that subsequent research has surfaced.</li>
+              </ul>
+            </div>
+            <div class="example-verdict-line">
+              18/30 — Insufficient. Genuinely influential but consistently over-cited relative to its evidentiary weight. The "30 million words" figure has become a policy shorthand that outran the study's actual claims.
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="example-card verdict-insufficient">
+          <div class="example-header">
+            <div class="example-header-left">
+              <div class="example-title">Concord Grape Juice &amp; Cognitive Function (2016)</div>
+              <div class="example-desc">Study reporting memory and cognitive improvements following daily Concord grape juice consumption. Funded by Welch Foods.</div>
+            </div>
+            <div class="example-total">
+              <div>
+                <span class="score-num">13</span>
+                <span class="score-denom">/30</span>
+              </div>
+              <div class="score-verdict">Insufficient</div>
+            </div>
+          </div>
+          <div class="example-body">
+            <div class="pearls-scores">
+              <div class="pearl-chip">
+                <span class="pearl-letter">P</span>
+                <span class="pearl-val pearl-val-2">2</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">E</span>
+                <span class="pearl-val pearl-val-3">3</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">A</span>
+                <span class="pearl-val pearl-val-2">2</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">R</span>
+                <span class="pearl-val pearl-val-3">3</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">L</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">S</span>
+                <span class="pearl-val pearl-val-2">2</span>
+              </div>
+            </div>
+            <div class="example-notes">
+              <ul>
+                <li><strong>P=2:</strong> Small sample of older adults with mild memory complaints — not a general-population sample. Self-selected health-concerned participants may differ meaningfully from general adults.</li>
+                <li><strong>E=3:</strong> Randomized placebo-controlled design is a genuine methodological strength. However, the study's short duration limits the durability of conclusions.</li>
+                <li><strong>A=2:</strong> Positive findings reported prominently; effect sizes are modest and the study was not pre-registered, raising the possibility of selective outcome reporting.</li>
+                <li><strong>R=3:</strong> Moderately relevant to anyone specifically interested in cognitive health, but the population and intervention are highly specific.</li>
+                <li><strong>L=1:</strong> Funded by Welch Foods, the manufacturer of Concord grape juice. This is a direct commercial conflict — the funder has a financial stake in positive results.</li>
+                <li><strong>S=2:</strong> Single product, single outcome measure, short time horizon. No exploration of mechanism or alternative explanations for the effect.</li>
+              </ul>
+            </div>
+            <div class="example-verdict-line">
+              13/30 — Insufficient. The randomized design is a real strength, but methodological rigor is undermined by the funding conflict and narrow scope. The L=1 alone should prompt caution.
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="example-card verdict-untrustworthy">
+          <div class="example-header">
+            <div class="example-header-left">
+              <div class="example-title">Wakefield et al. (1998) — MMR Vaccine &amp; Autism</div>
+              <div class="example-desc">Retracted Lancet paper claiming a causal link between the MMR vaccine and autism in 12 children.</div>
+            </div>
+            <div class="example-total">
+              <div>
+                <span class="score-num">6</span>
+                <span class="score-denom">/30</span>
+              </div>
+              <div class="score-verdict">Untrustworthy</div>
+            </div>
+          </div>
+          <div class="example-body">
+            <div class="pearls-scores">
+              <div class="pearl-chip">
+                <span class="pearl-letter">P</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">E</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">A</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">R</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">L</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+              <div class="pearl-chip">
+                <span class="pearl-letter">S</span>
+                <span class="pearl-val pearl-val-1">1</span>
+              </div>
+            </div>
+            <div class="example-notes">
+              <ul>
+                <li><strong>P=1:</strong> n=12, and children were specifically selected to show a pattern — not a representative sample by any definition.</li>
+                <li><strong>E=1:</strong> Case series with no controls, no randomization, no blinding. Methodology was subsequently found to have been fraudulently manipulated.</li>
+                <li><strong>A=1:</strong> Causal conclusions vastly exceeded evidentiary basis. Conclusions were not merely overstated — they were later found to be fabricated.</li>
+                <li><strong>R=1:</strong> The study has been comprehensively refuted by dozens of large-scale subsequent studies. Citing it as evidence would be anti-evidence.</li>
+                <li><strong>L=1:</strong> Wakefield received undisclosed payments from litigation attorneys who were seeking evidence against vaccine manufacturers at the time of the study.</li>
+                <li><strong>S=1:</strong> Three symptoms, 12 children, no acknowledgment of limitations, no alternative explanations considered.</li>
+              </ul>
+            </div>
+            <div class="example-verdict-line">
+              6/30 — Untrustworthy. The lowest possible PEARLS score across all six criteria. The paper was retracted by The Lancet in 2010 and Wakefield lost his medical license. This example illustrates that PEARLS scores don't require hindsight — the flaws were scoreable at publication.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /examples-grid -->
+    </section>
+
+    <!-- ── Governance-Specific Standards ── -->
+    <section id="governance">
+      <h2>How We Grade School Board Research</h2>
+      <p>
+        School board governance is a methodologically challenging research domain. Outcomes are
+        diffuse and long-cycle. The number of boards in any study is usually small. Variables
+        like board composition, board behavior, leadership culture, and district context are
+        difficult to isolate from one another. Most research in this space is correlational,
+        not causal.
+      </p>
+      <p>
+        When applying PEARLS to governance research specifically, we weight the following factors:
+      </p>
+      <ul class="governance-list">
+        <li>Studies that use <strong>district-level or board-level outcomes</strong> — not just self-report or perception data — receive stronger Execution scores.</li>
+        <li>Research that <strong>tracks outcomes over time</strong> (longitudinal designs) is meaningfully stronger than cross-sectional snapshots for this domain.</li>
+        <li>Studies that <strong>account for confounders</strong> — district size, student demographics, state policy context, leadership tenure — score higher on Scope than studies that treat governance as a single isolated variable.</li>
+        <li>We look for studies that are <strong>clear about whether board composition or board behavior</strong> was the variable of interest. These are often conflated.</li>
+        <li>We distinguish <strong>governance structure</strong> (how boards are constituted) from <strong>governance practice</strong> (what boards actually do). Research on one rarely transfers cleanly to the other.</li>
+      </ul>
+      <div class="governance-callout">
+        <strong>A note on the evidence base:</strong> Most school board research scores in the 18–24 range
+        on the PEARLS scale. Very few studies clear 26. This is not a criticism of the researchers —
+        it reflects the genuine difficulty of conducting rigorous governance research at scale. We are
+        transparent about this limitation throughout our research summaries. When we cite a study rated
+        Informative, we say so. When the best available evidence scores 20, we note that a 20 is the
+        ceiling, not a floor.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">School Board <span>Research</span></div>
+        <p class="footer-tagline">
+          Independent synthesis of governance research for district leaders, board members,
+          and education policymakers.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/#research">Research Library</a></li>
+          <li><a href="/methodology.html">PEARLS Methodology</a></li>
+          <li><a href="/search.html">Search Research</a></li>
+          <li><a href="/about.html">About the Project</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Methodology</h4>
+        <ul>
+          <li><a href="#participants">P — Participants</a></li>
+          <li><a href="#execution">E — Execution</a></li>
+          <li><a href="#analysis">A — Analysis</a></li>
+          <li><a href="#relevance">R — Relevance</a></li>
+          <li><a href="#links">L — Links</a></li>
+          <li><a href="#scope">S — Scope</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 School Board Research. All scores reflect independent editorial judgment.
+    </div>
+  </footer>
+
+</body>
+</html>
