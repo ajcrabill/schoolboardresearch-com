@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Does 'Effective Board Governance' Actually Predict? — School Board Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --slate: #4A5568;
+      --parchment: #FDF6E3;
+      --forest: #2D5016;
+      --gold: #B7791F;
+      --light-parchment: #FDFAF4;
+    }
+
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      color: var(--slate);
+      background: var(--light-parchment);
+      line-height: 1.7;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--parchment);
+      border-bottom: 3px solid var(--forest);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--slate);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--slate);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--forest);
+      border-bottom-color: var(--forest);
+    }
+
+    .post-header {
+      background: var(--slate);
+      padding: 3.5rem 2rem 3rem;
+    }
+    .post-header-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(253,246,227,0.65);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--parchment); }
+    .citation-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      padding: 0.25rem 0.65rem;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+    .post-header h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.3;
+      color: var(--parchment);
+      margin-bottom: 1rem;
+    }
+    .post-meta {
+      font-size: 0.8rem;
+      color: rgba(253,246,227,0.6);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .post-body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    .post-body h2 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-top: 2.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .post-body p {
+      font-size: 1rem;
+      color: var(--slate);
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .post-body p:first-child {
+      font-size: 1.06rem;
+      color: #3a4252;
+    }
+
+    .callout {
+      background: var(--parchment);
+      border-left: 4px solid var(--gold);
+      padding: 1.25rem 1.5rem;
+      margin: 2.5rem 0;
+      font-size: 0.9rem;
+      color: #4a4838;
+    }
+    .callout strong {
+      display: block;
+      font-weight: 600;
+      color: var(--slate);
+      margin-bottom: 0.4rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      background: var(--slate);
+      color: var(--parchment);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.875rem;
+      color: rgba(253,246,227,0.78);
+      margin-bottom: 0.4rem;
+    }
+    footer p:first-child {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      color: var(--parchment);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .post-header { padding: 2.5rem 1.25rem 2rem; }
+      .post-body { padding: 2.5rem 1.25rem 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">School Board Research</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#latest">Latest</a></li>
+      <li><a href="../index.html#topics">By Topic</a></li>
+      <li><a href="../index.html#about">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="post-header">
+    <div class="post-header-inner">
+      <a href="../index.html" class="back-link">← Back to School Board Research</a>
+      <div><span class="citation-tag">[Research Summary]</span></div>
+      <h1>What Does 'Effective Board Governance' Actually Predict? A Review of the Literature</h1>
+      <div class="post-meta">Research Summary &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; Synthesized from multiple sources</div>
+    </div>
+  </div>
+
+  <div class="post-body">
+
+    <p>One of the most persistent challenges in school board governance research is definitional: different research traditions mean different things by "effective governance," and those differences are not trivial. Before asking what produces effective governance, it is worth mapping the landscape of what researchers are actually measuring when they claim to study it.</p>
+
+    <h2>Three Research Traditions, Three Definitions</h2>
+
+    <p>The political science tradition tends to define effective governance in terms of democratic accountability — whether boards are responsive to constituents, whether elections are competitive, whether the board reflects community demographics. By this definition, effective governance is about legitimacy and representation. Research in this tradition examines voter turnout, recall elections, and the demographic correspondence between boards and the communities they serve.</p>
+
+    <p>The organizational management tradition defines effective governance primarily in terms of the board-superintendent relationship: whether roles are clearly delineated, whether the board sets policy while the superintendent manages operations, whether the evaluation cycle is meaningful. By this definition, effective governance is about institutional function. Research here tends to draw on corporate governance literature, and the outcome of interest is organizational health rather than student performance directly.</p>
+
+    <p>The education policy tradition, which has grown most rapidly in the past two decades, defines effective governance in terms of student outcomes. By this definition, a board is effective if the students in its district learn more, graduate at higher rates, and close achievement gaps. This is the most demanding definition — it requires that the entire causal chain from governance practice to classroom instruction to student learning be intact — but it is also the most consequential for policy.</p>
+
+    <h2>Where the Research Converges</h2>
+
+    <p>Despite these definitional differences, several governance practices appear as positive factors across multiple research traditions. The convergence is notable because these traditions use different methods, study different outcomes, and draw on different theoretical frameworks.</p>
+
+    <p><strong>Student outcome monitoring.</strong> Across organizational management and education policy research, boards that regularly and systematically review disaggregated student performance data appear in higher-functioning districts. The education policy literature links this practice most directly to student outcomes; the management literature links it to superintendent accountability and strategic coherence.</p>
+
+    <p><strong>Clarity on the governance-management boundary.</strong> Research from the management tradition consistently finds that boards that maintain a clear distinction between their policy role and the superintendent's operational role have better functioning organizations. The education policy tradition has picked up this finding and connected it to outcomes: micromanagement of operations appears to crowd out the strategic monitoring that correlates with improvement.</p>
+
+    <p><strong>Written goals tied to student outcomes.</strong> Boards that produce explicit, written, measurable goals for student performance — and revisit them regularly — appear in studies of high-performing districts and high-functioning governance systems alike. The goal-setting function seems to create an accountability object that shapes both board behavior and superintendent priorities.</p>
+
+    <h2>Where the Research Diverges</h2>
+
+    <p>The political science and education policy traditions diverge most sharply on questions of board composition and election structure. Representational diversity, competitive elections, and constituent engagement — high-salience in the political science tradition — do not consistently predict student outcomes in the education policy literature. This does not mean these factors are unimportant; representation matters for democratic legitimacy independent of any performance effect. But practitioners building governance improvement systems should be clear that improving representational diversity and improving student outcomes are related but distinct goals, with different evidence bases.</p>
+
+    <h2>Practitioner Implication</h2>
+
+    <p>If you are building or evaluating a governance improvement system — whether you are a state agency, a nonprofit, or a district itself — the research suggests focusing first on the elements where convergence across traditions is strongest: student outcome monitoring, governance-management boundary clarity, and written goal-setting tied to performance. These practices appear consistently enough, across enough different methodological approaches, that investing in them is defensible even where the causal evidence is not yet definitive.</p>
+
+    <div class="callout">
+      <strong>Methodology Note</strong>
+      This summary synthesizes findings across political science, organizational management, and education policy research traditions. These traditions differ significantly in method, outcome definition, and level of analysis. Findings described as "converging" appear in at least two traditions; findings described as diverging reflect genuine disagreement in the literature, not gaps in any single study. No specific causal claims are made here where the evidence base does not support them.
+    </div>
+
+  </div>
+
+  <footer>
+    <p>School Board Research — making governance evidence accessible</p>
+    <p>© 2026 School Board Research</p>
+  </footer>
+
+</body>
+</html>
