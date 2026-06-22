@@ -9,6 +9,11 @@ layout: default
       <span>{{ page.date_display }}</span>
       <span>School Board Research</span>
     </div>
+    {% if page.citation %}
+    <div class="article-citation">
+      {% if page.doi %}<a href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener">DOI: {{ page.doi }}</a> — {% endif %}{{ page.citation }}
+    </div>
+    {% endif %}
   </div>
 </header>
 <div class="back-bar">
