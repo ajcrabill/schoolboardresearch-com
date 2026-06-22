@@ -44,73 +44,15 @@ title: "Search"
     </div>
   </section>
 
+  <!-- Jekyll outputs all research pages as a JS array -->
   <script>
-    const articles = [
-      {
-        title: "High Turnover With Low Accountability: Local School Board Elections in 16 States",
-        url: "/research/board-elections-accountability-turnover.html",
-        badge: "Large-N Empirical Analysis",
-        finding: "More than half of board seats change hands each election cycle — but almost entirely through voluntary retirement, not electoral defeat. Incumbents who run win over 80% of the time, and board turnover is only weakly related to student learning rates.",
-        citation: "Kogan, Lavertu & Peskowitz (2025). AERA Open. Spencer Foundation.",
-        topics: ["accountability"],
-        pearls: 26
-      },
-      {
-        title: "What Does \"Effective Board Governance\" Actually Predict? A Review of the Literature",
-        url: "/research/effective-governance-literature.html",
-        badge: "Literature Review",
-        finding: "Research traditions differ in how they define effective governance, but converge on outcome monitoring as the governance practice most consistently associated with improved student results.",
-        citation: "Synthesis of peer-reviewed studies and RAND policy reports",
-        topics: ["outcomes", "accountability"],
-        pearls: null
-      },
-      {
-        title: "Training Without Accountability Doesn't Move Outcomes",
-        url: "/research/training-without-accountability.html",
-        badge: "Meta-Analysis",
-        finding: "Multiple studies find that knowledge-based board training, absent accompanying accountability structures, produces measurable knowledge gains but not behavioral change or improved student outcomes.",
-        citation: "Synthesized from 6 peer-reviewed studies, 2019–2024",
-        topics: ["accountability"],
-        pearls: null
-      },
-      {
-        title: "Board Governance and Student Achievement: Tracing the Causal Chain",
-        url: "/research/board-governance-student-achievement.html",
-        badge: "Cross-District Longitudinal",
-        finding: "The path from board governance to student outcomes is long and mediated, but boards that focus on setting clear expectations and monitoring outcomes show the strongest downstream association with student performance.",
-        citation: "Waters & Marzano (2009), McREL International. Meta-analysis, n=2,817 studies.",
-        topics: ["outcomes"],
-        pearls: 25
-      },
-      {
-        title: "Does Who Sits on the Board Matter? Board Composition and Equity Outcomes",
-        url: "/research/board-composition-equity.html",
-        badge: "Comparative Policy Study",
-        finding: "Demographically representative boards show modest but consistent associations with equity-related policy adoption. The direct effect on student outcomes is weaker and more mediated.",
-        citation: "Meier & England (1984); Berkman & Plutzer (2005). Academic political science research.",
-        topics: ["composition"],
-        pearls: 22
-      },
-      {
-        title: "The Quality of Superintendent Evaluation Predicts More Than Its Frequency",
-        url: "/research/superintendent-evaluation-quality.html",
-        badge: "Survey Study",
-        finding: "The rigor and specificity of superintendent evaluations correlates more strongly with district performance trajectories than evaluation frequency or formal policy compliance.",
-        citation: "AASA / NSBA survey research, n=890 superintendents",
-        topics: ["superintendent", "accountability"],
-        pearls: 21
-      },
-      {
-        title: "When States Step In: What Research Shows About Oversight Regimes and Local Board Performance",
-        url: "/research/state-oversight-local-autonomy.html",
-        badge: "Policy Analysis",
-        finding: "State intervention reduces the worst outcomes in lowest-performing districts but does not on average improve governance quality for boards not near the intervention threshold.",
-        citation: "RAND Corporation; Hess & Meeks (2010), Fordham Institute.",
-        topics: ["policy"],
-        pearls: 22
-      }
-    ];
-
+  var ARTICLES = [
+    {% assign research_pages = site.pages | where: "layout", "research" %}{% for p in research_pages %}
+    {"title":{{ p.title | jsonify }},"url":{{ p.url | jsonify }},"badge":{{ p.study_type | default: "" | jsonify }},"finding":{{ p.finding | default: "" | jsonify }},"citation":{{ p.citation | default: "" | jsonify }},"topics":{{ p.topic | default: "" | split: "," | jsonify }},"pearls":{{ p.pearls_score | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}
+  ];
+  </script>
+  <script>
+    const articles = ARTICLES;
     const totalCount = articles.length;
     let activeTopic = "all";
 
