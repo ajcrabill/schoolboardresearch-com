@@ -15,5 +15,128 @@
   {%- include nav.html -%}
   {{ content }}
   {%- include footer.html -%}
+
+  <!-- Floating suggest-a-study button -->
+  <button class="suggest-fab" id="suggest-fab" aria-label="Suggest a study for review" title="Suggest a study">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    <span>Suggest a study</span>
+  </button>
+
+  <div class="suggest-backdrop" id="suggest-backdrop" aria-hidden="true"></div>
+
+  <div class="suggest-popover" id="suggest-popover" role="dialog" aria-modal="true" aria-labelledby="suggest-heading" hidden>
+    <div class="suggest-header">
+      <div>
+        <div class="suggest-eyebrow">Contribute</div>
+        <h2 class="suggest-heading" id="suggest-heading">Recommend research for review</h2>
+      </div>
+      <button class="suggest-close" id="suggest-close" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="suggest-body">
+      <p class="suggest-desc">Found a study on school board governance? Paste the DOI below and we'll add it to the PEARLS review queue.</p>
+      <div id="suggest-success" class="suggest-success" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <div>
+          <strong>Received — thank you.</strong>
+          <p>We'll evaluate it using the PEARLS framework and post the review when complete.</p>
+        </div>
+      </div>
+      <form id="suggest-form" action="https://formspree.io/f/xayzdydv" method="POST" novalidate>
+        <input type="hidden" name="form" value="schoolboardresearch-doi-suggest" />
+        <div class="suggest-field">
+          <label for="suggest-doi">DOI <span class="suggest-required" aria-hidden="true">*</span></label>
+          <input type="text" id="suggest-doi" name="doi_url" placeholder="10.xxxx/… or https://doi.org/…" autocomplete="off" spellcheck="false" />
+          <span class="suggest-field-note">Paste the DOI or full DOI URL — title and authors will be looked up automatically.</span>
+        </div>
+        <div class="suggest-field">
+          <label for="suggest-title">Study title <span class="suggest-optional">(optional if DOI provided)</span></label>
+          <input type="text" id="suggest-title" name="study_title" placeholder="Full title of the paper or report" />
+        </div>
+        <div class="suggest-field">
+          <label for="suggest-note">Note <span class="suggest-optional">(optional)</span></label>
+          <input type="text" id="suggest-note" name="note" placeholder="Why you think this is worth reviewing" />
+        </div>
+        <div class="suggest-actions">
+          <button type="submit" class="suggest-submit" id="suggest-submit">Submit for review</button>
+          <a href="/request.html" class="suggest-full-link">Full submission form ›</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    var fab = document.getElementById('suggest-fab');
+    var popover = document.getElementById('suggest-popover');
+    var backdrop = document.getElementById('suggest-backdrop');
+    var closeBtn = document.getElementById('suggest-close');
+    var form = document.getElementById('suggest-form');
+    var success = document.getElementById('suggest-success');
+    var submitBtn = document.getElementById('suggest-submit');
+    var doiInput = document.getElementById('suggest-doi');
+
+    function openPopover() {
+      popover.hidden = false;
+      backdrop.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() {
+        popover.classList.add('suggest-popover--open');
+        backdrop.classList.add('suggest-backdrop--open');
+        doiInput.focus();
+      }, 10);
+    }
+
+    function closePopover() {
+      popover.classList.remove('suggest-popover--open');
+      backdrop.classList.remove('suggest-backdrop--open');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        popover.hidden = true;
+        backdrop.style.display = 'none';
+      }, 200);
+    }
+
+    fab.addEventListener('click', openPopover);
+    closeBtn.addEventListener('click', closePopover);
+    backdrop.addEventListener('click', closePopover);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !popover.hidden) closePopover();
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var doi = doiInput.value.trim();
+      var title = document.getElementById('suggest-title').value.trim();
+      if (!doi && !title) {
+        doiInput.focus();
+        doiInput.style.borderColor = '#c0392b';
+        return;
+      }
+      doiInput.style.borderColor = '';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      var data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function(r) {
+          if (r.ok) {
+            form.hidden = true;
+            success.hidden = false;
+          } else {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit for review';
+            alert('Something went wrong — please try the full form.');
+          }
+        })
+        .catch(function() {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit for review';
+          alert('Could not submit — please check your connection and try again.');
+        });
+    });
+  })();
+  </script>
 </body>
 </html>
