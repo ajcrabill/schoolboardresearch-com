@@ -2122,6 +2122,7 @@ select {
   line-height: 1.55;
 }
 
+.suggest-success[hidden] { display: none; }
 .suggest-success {
   display: flex;
   align-items: flex-start;

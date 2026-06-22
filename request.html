@@ -24,12 +24,12 @@ title: "Request Research"
       </ul>
     </div>
 
-    <div id="success-msg">
+    <div id="success-msg" style="display:none">
       <h3>Request received — thank you.</h3>
       <p>We'll add this study to the review queue. When the PEARLS evaluation is complete, it will appear in the research archive. Reviews typically post within 2–4 weeks of the queue date.</p>
     </div>
 
-    <form id="review-request-form" action="https://formspree.io/f/xayzdydv" method="POST">
+    <form id="review-request-form" action="https://formspree.io/f/xayzdydv" method="POST" novalidate>
       <input type="hidden" name="form" value="schoolboardresearch-review-request" />
 
       <div class="field">
@@ -89,8 +89,46 @@ title: "Request Research"
         </div>
       </div>
 
-      <button type="submit" class="submit-btn">Submit for review →</button>
+      <button type="submit" class="submit-btn" id="req-submit">Submit for review →</button>
     </form>
+
+    <script>
+    (function() {
+      var form = document.getElementById('review-request-form');
+      var success = document.getElementById('success-msg');
+      var submitBtn = document.getElementById('req-submit');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var title = form.querySelector('[name="study_title"]').value.trim();
+        var doi = form.querySelector('[name="doi_url"]').value.trim();
+        if (!title && !doi) {
+          form.querySelector('[name="study_title"]').focus();
+          return;
+        }
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting…';
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(r) {
+          if (r.ok) {
+            form.style.display = 'none';
+            success.style.display = 'block';
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit for review →';
+            alert('Submission failed — please try again or email us directly.');
+          }
+        }).catch(function() {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit for review →';
+          alert('Could not submit — please check your connection and try again.');
+        });
+      });
+    })();
+    </script>
 
     <div class="methodology-link">
       Reviews apply the <a href="/methodology.html">PEARLS framework</a> — a six-criterion evaluation of research trustworthiness and applicability developed for school governance practitioners.
