@@ -9,13 +9,13 @@ title: ""
       <p class="hero-sub">Accessible summaries of peer-reviewed research and policy studies — translated for practitioners who work with boards.</p>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-number">47</span>
+          <span class="stat-number" id="stat-count">—</span>
           <span class="stat-label">Studies Reviewed</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
-          <span class="stat-number">12</span>
-          <span class="stat-label">Governance Factors Analyzed</span>
+          <span class="stat-number" id="stat-topics">—</span>
+          <span class="stat-label">Governance Topics</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
@@ -29,22 +29,8 @@ title: ""
   <section class="featured-section" id="research" aria-labelledby="featured-heading">
     <div class="site-container">
       <div class="section-header" id="featured-heading">Featured Research</div>
-      <div class="featured-card">
-        <span class="study-badge">Literature Review</span>
-        <h2>What Does "Effective Board Governance" Actually Predict? A Review of the Literature</h2>
-        <div class="finding-row">
-          <span class="finding-label">Key Finding:</span>
-          <span class="finding-value">Research traditions differ in how they define "effective governance," but converge on outcome monitoring as the governance practice most consistently associated with improved student results.</span>
-        </div>
-        <div class="finding-row">
-          <span class="finding-label">Methodology:</span>
-          <span class="finding-value">Synthesis of multiple peer-reviewed studies and RAND policy reports; correlational and quasi-experimental designs.</span>
-        </div>
-        <div class="finding-row">
-          <span class="finding-label">For Practitioners:</span>
-          <span class="finding-value">Boards should distinguish between process fidelity (doing governance "correctly") and outcome accountability (monitoring whether results actually improve) — research supports the latter more strongly.</span>
-        </div>
-        <a href="/research/effective-governance-literature.html" class="read-link">Read summary</a>
+      <div id="featured-area">
+        <!-- populated by JS -->
       </div>
     </div>
   </section>
@@ -62,281 +48,13 @@ title: ""
         <button class="topic-btn" data-topic="policy">Policy &amp; Oversight</button>
       </div>
 
-      <div class="cards-grid">
-        <a href="/research/training-without-accountability.html" class="card-link">
-          <article class="card" data-topic="accountability">
-            <span class="study-badge">Meta-Analysis</span>
-            <h3>Training Without Accountability Doesn't Move Outcomes</h3>
-            <p class="card-finding">Multiple studies find that knowledge-based board training, absent accompanying accountability structures, produces measurable knowledge gains but not behavioral change or improved student outcomes.</p>
-            <div class="card-citation">Synthesized from 6 peer-reviewed studies, 2019–2024</div>
-          </article>
-        </a>
-        <a href="/research/board-governance-student-achievement.html" class="card-link">
-          <article class="card" data-topic="outcomes">
-            <span class="study-badge">Longitudinal</span>
-            <h3>Board Governance and Student Achievement: What the Causal Chain Looks Like</h3>
-            <p class="card-finding">The path from board governance to student outcomes is long and mediated, but specific practices — particularly outcome monitoring and superintendent evaluation quality — show the strongest downstream signals.</p>
-            <div class="card-citation">Waters &amp; Marzano (2009), McREL International. Meta-analysis, n=2,817 studies.</div>
-          </article>
-        </a>
+      <div id="recent-grid" class="cards-grid">
+        <!-- populated by JS -->
       </div>
 
-      <div class="cards-row-3">
-        <a href="/research/board-composition-equity.html" class="card-link">
-          <article class="card" data-topic="composition">
-            <span class="study-badge">Comparative Policy Study</span>
-            <h3>Does Board Composition Affect Equity Outcomes?</h3>
-            <p class="card-finding">Districts with demographically representative boards showed modest but consistent associations with equity-related policy adoption — the direct effect on student outcomes is weaker and more mediated.</p>
-            <div class="card-citation">Meier &amp; England (1984); Berkman &amp; Plutzer (2005). Academic political science research.</div>
-          </article>
-        </a>
-        <a href="/research/superintendent-evaluation-quality.html" class="card-link">
-          <article class="card" data-topic="superintendent">
-            <span class="study-badge">Survey Study</span>
-            <h3>Superintendent Evaluation Quality as a Governance Indicator</h3>
-            <p class="card-finding">The rigor and specificity of superintendent evaluations correlates more strongly with district performance trajectories than evaluation frequency or formal policy adoption.</p>
-            <div class="card-citation">AASA / NSBA survey research, n=890 superintendents</div>
-          </article>
-        </a>
-        <a href="/research/state-oversight-local-autonomy.html" class="card-link">
-          <article class="card" data-topic="policy">
-            <span class="study-badge">Policy Review</span>
-            <h3>State Oversight Regimes and Local Board Autonomy</h3>
-            <p class="card-finding">State-imposed intervention frameworks reduce certain low-performing outliers but do not on average improve outcomes for boards that weren't already near the intervention threshold.</p>
-            <div class="card-citation">RAND Corporation policy analysis; Hess &amp; Meeks (2010), Fordham Institute.</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-grid" style="margin-top:1.5rem;">
-        <a href="/research/board-training-behavior-change.html" class="card-link">
-          <article class="card" data-topic="accountability">
-            <span class="study-badge">Meta-Analysis</span>
-            <h3>Training Without Behavior Change: Why Knowledge Gains Don't Translate to Governance Improvement</h3>
-            <p class="card-finding">Multiple studies find training produces knowledge gains but not behavioral change without accountability structures.</p>
-            <div class="card-citation">Synthesized from governance research, 2019-2025</div>
-          </article>
-        </a>
-        <a href="/research/public-comment-board-decisions.html" class="card-link">
-          <article class="card" data-topic="accountability">
-            <span class="study-badge">Survey Study</span>
-            <h3>Does Public Comment Actually Influence Board Decisions?</h3>
-            <p class="card-finding">Meeting record analysis shows public comment rarely changes predetermined board votes.</p>
-            <div class="card-citation">AASA/NSBA survey data, n=847 board members</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-row-3" style="margin-top:1.5rem;">
-        <a href="/research/first-time-board-members.html" class="card-link">
-          <article class="card" data-topic="accountability">
-            <span class="study-badge">Survey Study</span>
-            <h3>First-Year Board Members: What They Get Wrong</h3>
-            <p class="card-finding">First-year members consistently misidentify governance vs. management decisions until year two.</p>
-            <div class="card-citation">NSBA New Member Survey, 2024</div>
-          </article>
-        </a>
-        <a href="/research/board-meeting-preparation.html" class="card-link">
-          <article class="card" data-topic="accountability">
-            <span class="study-badge">Observational Study</span>
-            <h3>Meeting Preparation and Board Effectiveness</h3>
-            <p class="card-finding">Boards where members read full packet before meetings take 40% less time on clarifying questions.</p>
-            <div class="card-citation">Observational study, 12 districts, 2023-2025</div>
-          </article>
-        </a>
-        <a href="/research/term-length-governance-quality.html" class="card-link">
-          <article class="card" data-topic="accountability">
-            <span class="study-badge">Policy Analysis</span>
-            <h3>Longer Board Terms Correlate With Better Governance</h3>
-            <p class="card-finding">4-year terms outperform 2-year terms on outcome monitoring consistency metrics.</p>
-            <div class="card-citation">15-state policy analysis, 2024</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-grid" style="margin-top:1.5rem;">
-        <a href="/research/student-achievement-governance-link.html" class="card-link">
-          <article class="card" data-topic="outcomes">
-            <span class="study-badge">Longitudinal Study</span>
-            <h3>The Governance-Achievement Chain: How Board Practices Shape Student Results</h3>
-            <p class="card-finding">Specific board practices show downstream signals in student outcomes with 2-3 year lag.</p>
-            <div class="card-citation">McREL/RAND longitudinal synthesis, 2009-2024</div>
-          </article>
-        </a>
-        <a href="/research/monitoring-frequency-outcomes.html" class="card-link">
-          <article class="card" data-topic="outcomes">
-            <span class="study-badge">Quantitative Study</span>
-            <h3>Monitoring Frequency and Organizational Performance</h3>
-            <p class="card-finding">Boards monitoring 6x yearly outperform those monitoring quarterly on goal attainment measures.</p>
-            <div class="card-citation">District performance data, 18 states</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-row-3" style="margin-top:1.5rem;">
-        <a href="/research/goal-clarity-achievement.html" class="card-link">
-          <article class="card" data-topic="outcomes">
-            <span class="study-badge">Quasi-Experimental</span>
-            <h3>Goal Clarity and Student Achievement</h3>
-            <p class="card-finding">Districts with specific measurable goals show 12% higher proficiency growth over 3 years.</p>
-            <div class="card-citation">Quasi-experimental study, n=340 districts</div>
-          </article>
-        </a>
-        <a href="/research/board-coherence-student-performance.html" class="card-link">
-          <article class="card" data-topic="outcomes">
-            <span class="study-badge">Longitudinal Study</span>
-            <h3>Board Coherence as a Governance Variable</h3>
-            <p class="card-finding">Internal board alignment predicts district stability and student performance trajectories.</p>
-            <div class="card-citation">8-year longitudinal, n=180 districts</div>
-          </article>
-        </a>
-        <a href="/research/equity-gap-governance-practices.html" class="card-link">
-          <article class="card" data-topic="outcomes">
-            <span class="study-badge">Comparative Study</span>
-            <h3>Equity Gaps and Governance Practices</h3>
-            <p class="card-finding">Boards in closing-the-gap districts use outcome monitoring for subgroup data more consistently.</p>
-            <div class="card-citation">Comparative analysis, Education Trust, 2024</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-grid" style="margin-top:1.5rem;">
-        <a href="/research/superintendent-tenure-stability.html" class="card-link">
-          <article class="card" data-topic="superintendent">
-            <span class="study-badge">Longitudinal Study</span>
-            <h3>Superintendent Tenure and District Stability</h3>
-            <p class="card-finding">Specific board governance practices predict superintendent tenures exceeding 5 years.</p>
-            <div class="card-citation">AASA/Broom Center longitudinal, n=1,200 districts</div>
-          </article>
-        </a>
-        <a href="/research/evaluation-quality-leadership.html" class="card-link">
-          <article class="card" data-topic="superintendent">
-            <span class="study-badge">Survey Study</span>
-            <h3>Evaluation Quality as a Retention Signal</h3>
-            <p class="card-finding">Goal-based evaluations predict 18-month longer tenures than trait-based evaluations.</p>
-            <div class="card-citation">AASA superintendent survey, n=890</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-row-3" style="margin-top:1.5rem;">
-        <a href="/research/ceo-hire-quality-board.html" class="card-link">
-          <article class="card" data-topic="superintendent">
-            <span class="study-badge">Case Study Analysis</span>
-            <h3>Who Boards Choose: Superintendent Selection Patterns</h3>
-            <p class="card-finding">Boards with clear outcome goals select candidates with stronger track records of measurable results.</p>
-            <div class="card-citation">Case analysis, 40 superintendent searches</div>
-          </article>
-        </a>
-        <a href="/research/board-conflict-superintendent-exit.html" class="card-link">
-          <article class="card" data-topic="superintendent">
-            <span class="study-badge">Retrospective Analysis</span>
-            <h3>Board Conflict as a Predictor of Superintendent Exit</h3>
-            <p class="card-finding">Boards with 2+ public splits predict superintendent departure within 18 months at 73% rate.</p>
-            <div class="card-citation">6-year retrospective, 215 districts</div>
-          </article>
-        </a>
-        <a href="/research/goal-based-superintendent-eval.html" class="card-link">
-          <article class="card" data-topic="superintendent">
-            <span class="study-badge">Comparative Study</span>
-            <h3>Goal-Based vs. Trait-Based Superintendent Evaluation</h3>
-            <p class="card-finding">Goal-based evaluation districts show 22% higher superintendent satisfaction scores.</p>
-            <div class="card-citation">Comparative study, n=280 districts</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-grid" style="margin-top:1.5rem;">
-        <a href="/research/board-composition-equity-outcomes.html" class="card-link">
-          <article class="card" data-topic="composition">
-            <span class="study-badge">Longitudinal Study</span>
-            <h3>Demographic Composition and Equity-Focused Policy Adoption</h3>
-            <p class="card-finding">Representative boards show modest consistent associations with equity policy adoption.</p>
-            <div class="card-citation">Meier &amp; England tradition; updated meta-analysis 2024</div>
-          </article>
-        </a>
-        <a href="/research/board-size-student-outcomes.html" class="card-link">
-          <article class="card" data-topic="composition">
-            <span class="study-badge">Longitudinal Study</span>
-            <h3>Board Size and Student Outcomes: Does the Number of Members Actually Matter?</h3>
-            <p class="card-finding">Board size shows no direct effect on student outcomes; governance culture is the mediator.</p>
-            <div class="card-citation">Longitudinal, n=2,400 districts, 2010-2024</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-row-3" style="margin-top:1.5rem;">
-        <a href="/research/board-elections-low-turnout.html" class="card-link">
-          <article class="card" data-topic="composition">
-            <span class="study-badge">Comparative Policy</span>
-            <h3>Low-Turnout Elections and Board Quality</h3>
-            <p class="card-finding">Low-turnout off-cycle elections correlate with less representative boards but not lower performance.</p>
-            <div class="card-citation">Political science literature review, 2024</div>
-          </article>
-        </a>
-        <a href="/research/rural-urban-board-differences.html" class="card-link">
-          <article class="card" data-topic="composition">
-            <span class="study-badge">Comparative Policy</span>
-            <h3>Rural vs. Urban School Board Governance</h3>
-            <p class="card-finding">Rural boards spend more time on facilities; urban boards on budget disputes. Context shapes agenda.</p>
-            <div class="card-citation">3-state comparative study, n=180 boards</div>
-          </article>
-        </a>
-        <a href="/research/partisan-school-boards.html" class="card-link">
-          <article class="card" data-topic="composition">
-            <span class="study-badge">Survey Research</span>
-            <h3>Partisanship and School Board Governance</h3>
-            <p class="card-finding">Boards with partisan identification split show 34% longer meeting times on non-curriculum decisions.</p>
-            <div class="card-citation">Survey study, n=620 board members, 2025</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-grid" style="margin-top:1.5rem;">
-        <a href="/research/state-intervention-effectiveness.html" class="card-link">
-          <article class="card" data-topic="policy">
-            <span class="study-badge">Policy Analysis</span>
-            <h3>State Takeovers of School Districts: A Review of Governance Outcomes</h3>
-            <p class="card-finding">State takeovers reduce certain outlier behaviors but don't average-improve non-takeover districts.</p>
-            <div class="card-citation">RAND policy analysis review, 2010-2024</div>
-          </article>
-        </a>
-        <a href="/research/accreditation-governance-quality.html" class="card-link">
-          <article class="card" data-topic="policy">
-            <span class="study-badge">Comparative Study</span>
-            <h3>Does Accreditation Improve Board Governance?</h3>
-            <p class="card-finding">Accreditation processes with governance-specific criteria show more improvement than general reviews.</p>
-            <div class="card-citation">Regional accreditation comparison, 7 systems</div>
-          </article>
-        </a>
-      </div>
-
-      <div class="cards-row-3" style="margin-top:1.5rem;">
-        <a href="/research/state-board-policy-local-governance.html" class="card-link">
-          <article class="card" data-topic="policy">
-            <span class="study-badge">Policy Review</span>
-            <h3>State Board Mandates and Local Governance Quality</h3>
-            <p class="card-finding">Compliance with state mandates diverges significantly from governance quality improvements.</p>
-            <div class="card-citation">Policy review, 32 state systems</div>
-          </article>
-        </a>
-        <a href="/research/accountability-frameworks-boards.html" class="card-link">
-          <article class="card" data-topic="policy">
-            <span class="study-badge">Systematic Review</span>
-            <h3>Accountability Frameworks for School Boards: What Works</h3>
-            <p class="card-finding">Frameworks requiring documented outcome monitoring show stronger governance improvements.</p>
-            <div class="card-citation">Systematic review, 48 studies, 2018-2025</div>
-          </article>
-        </a>
-        <a href="/research/charter-district-governance-compare.html" class="card-link">
-          <article class="card" data-topic="policy">
-            <span class="study-badge">Comparative Analysis</span>
-            <h3>Charter vs. District Governance: What Cross-Sector Comparison Reveals</h3>
-            <p class="card-finding">Charter boards with higher autonomy and clearer missions show stronger outcome monitoring consistency.</p>
-            <div class="card-citation">Cross-sector comparative, n=240 boards</div>
-          </article>
-        </a>
-      </div>
+      <p style="margin-top:2rem;text-align:center;">
+        <a href="/search.html" style="color:var(--primary);font-weight:600;">Browse all research →</a>
+      </p>
     </div>
   </section>
 
@@ -366,27 +84,98 @@ title: ""
     </div>
   </section>
 
+  <!-- Jekyll outputs all research pages as a JS array -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var cards = document.querySelectorAll(".card-link");
-      var statEls = document.querySelectorAll(".stat-number");
-      if (statEls[0]) statEls[0].textContent = cards.length;
-      var topics = new Set();
-      cards.forEach(function(c) { var t = c.querySelector(".card"); if (t) topics.add(t.dataset.topic); });
-      if (statEls[1]) statEls[1].textContent = topics.size;
-      // statEls[2] stays "All 50" (states represented)
+  var ARTICLES = [
+    {% assign research_pages = site.pages | where: "layout", "research" %}{% for p in research_pages %}
+    {"title":{{ p.title | jsonify }},"url":{{ p.url | jsonify }},"badge":{{ p.study_type | default: "" | jsonify }},"date":{{ p.date_display | default: "" | jsonify }},"citation":{{ p.citation | default: "" | jsonify }},"finding":{{ p.finding | default: "" | jsonify }},"topic":{{ p.topic | default: "" | jsonify }},"pearls":{{ p.pearls_score | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}
+  ];
+  </script>
+
+  <script>
+  (function() {
+    function esc(s) {
+      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // Sort most-recent first by parsing date_display ("Month YYYY" or "Month DD, YYYY")
+    ARTICLES.sort(function(a, b) {
+      var da = new Date(a.date), db = new Date(b.date);
+      if (isNaN(da.getTime())) return 1;
+      if (isNaN(db.getTime())) return -1;
+      return db - da;
     });
 
-    document.querySelectorAll('.topic-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+    var recent = ARTICLES.slice(0, 10);
+
+    // Rotate featured article: one per day among the 10 most recent
+    var dayIndex = Math.floor(Date.now() / 86400000) % recent.length;
+    var featured = recent[dayIndex];
+    var others = recent.filter(function(_, i) { return i !== dayIndex; });
+
+    var activeTopic = 'all';
+
+    // Render the featured card
+    function renderFeatured(art) {
+      var el = document.getElementById('featured-area');
+      if (!el || !art) return;
+      var desc = art.finding || art.citation;
+      el.innerHTML =
+        '<div class="featured-card">' +
+        (art.badge ? '<span class="study-badge">' + esc(art.badge) + '</span>' : '') +
+        '<h2>' + esc(art.title) + '</h2>' +
+        (desc ? '<div class="finding-row"><span class="finding-label">Key Finding:</span><span class="finding-value">' + esc(desc) + '</span></div>' : '') +
+        (art.finding && art.citation ? '<div class="finding-row"><span class="finding-label">Citation:</span><span class="finding-value">' + esc(art.citation) + '</span></div>' : '') +
+        (art.date ? '<div class="finding-row"><span class="finding-label">Published:</span><span class="finding-value">' + esc(art.date) + '</span></div>' : '') +
+        '<a href="' + esc(art.url) + '" class="read-link">Read summary</a>' +
+        '</div>';
+    }
+
+    // Render the recent cards grid
+    function renderGrid(topic) {
+      var grid = document.getElementById('recent-grid');
+      if (!grid) return;
+      var filtered = (topic === 'all')
+        ? others
+        : others.filter(function(a) { return a.topic === topic; });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--text-muted);">No recent research in this topic area.</p>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(function(a) {
+        return '<a href="' + esc(a.url) + '" class="card-link" data-topic="' + esc(a.topic) + '">' +
+          '<article class="card" data-topic="' + esc(a.topic) + '">' +
+          (a.badge ? '<span class="study-badge">' + esc(a.badge) + '</span>' : '') +
+          '<h3>' + esc(a.title) + '</h3>' +
+          (a.finding ? '<p class="card-finding">' + esc(a.finding) + '</p>' : '') +
+          '<div class="card-citation">' + esc(a.citation || '') + '</div>' +
+          '</article></a>';
+      }).join('');
+    }
+
+    // Update hero stats
+    var statCount = document.getElementById('stat-count');
+    var statTopics = document.getElementById('stat-topics');
+    if (statCount) statCount.textContent = ARTICLES.length;
+    if (statTopics) {
+      var topics = new Set(ARTICLES.map(function(a) { return a.topic; }).filter(Boolean));
+      statTopics.textContent = topics.size || '—';
+    }
+
+    // Wire topic filter buttons
+    document.querySelectorAll('.topic-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.topic-btn').forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        const topic = btn.dataset.topic;
-        document.querySelectorAll('.card-link').forEach(link => {
-          const card = link.querySelector('.card');
-          const cardTopic = card ? card.dataset.topic : '';
-          link.style.display = (topic === 'all' || cardTopic === topic) ? '' : 'none';
-        });
+        activeTopic = btn.dataset.topic;
+        renderGrid(activeTopic);
       });
     });
+
+    // Initial render
+    renderFeatured(featured);
+    renderGrid('all');
+  })();
   </script>
