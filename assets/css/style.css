@@ -1982,6 +1982,11 @@ select {
   flex-shrink: 0;
 }
 
+.card-footer .card-citation {
+  border-top: none;
+  padding-top: 0;
+}
+
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
